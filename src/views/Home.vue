@@ -36,7 +36,7 @@
       <v-col cols="12" lg="12" xl="8">
         <div>
           <div class="pt-16">
-            <h2 class="text-h4 font-weight-bold pb-4">Recommended For You</h2>
+            <h2 class="text-h4 font-weight-bold pb-4">Mới nhất</h2>
 
             <v-row>
               <v-col v-for="i in 6" :key="i" cols="12" lg="4" md="6">
@@ -92,50 +92,7 @@
           </div>
 
           <div class="pt-16">
-            <h2 class="text-h4 font-weight-bold pb-4">Featured</h2>
-
-            <v-row>
-              <v-col v-for="i in 3" :key="i" cols="6" lg="4">
-                <v-card dark flat>
-                  <v-img
-                      :aspect-ratio="16 / 9"
-                      class="elevation-2 fill-height"
-                      gradient="to top, rgba(25,32,72,.4), rgba(25,32,72,.0)"
-                      height="600px"
-                      src="https://cdn.pixabay.com/photo/2019/10/29/14/46/landscape-4587079_1280.jpg"
-                  >
-                    <div
-                        class="d-flex flex-column justify-space-between fill-height"
-                    >
-                      <v-card-text>
-                        <v-btn color="accent">ANIMALS</v-btn>
-                      </v-card-text>
-
-                      <v-card-text>
-                        <div
-                            class="text-h5 py-3 font-weight-bold"
-                            style="line-height: 1.2"
-                        >
-                          15 things I have always wondered about birds
-                        </div>
-
-                        <div class="d-flex align-center">
-                          <v-avatar color="accent" size="36">
-                            <v-icon dark>mdi-feather</v-icon>
-                          </v-avatar>
-
-                          <div class="pl-2">Yan Lee · 03 Jan 2019</div>
-                        </div>
-                      </v-card-text>
-                    </div>
-                  </v-img>
-                </v-card>
-              </v-col>
-            </v-row>
-          </div>
-
-          <div class="pt-16">
-            <h2 class="text-h4 font-weight-bold">Latest Posts</h2>
+            <h2 class="text-h4 font-weight-bold">Tất cả</h2>
 
             <div>
               <v-row v-for="i in 6" :key="i" class="py-4">

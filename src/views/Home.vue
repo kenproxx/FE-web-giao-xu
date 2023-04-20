@@ -33,8 +33,8 @@
             </v-card>
         </div>
 
-        <v-row>
-            <v-col cols="12" lg="12" xl="8">
+        <v-row id="hot-post">
+            <v-col cols="12" lg="12" xl="8" >
                 <div>
                     <div class="pt-16">
                         <h2 class="text-h4 font-weight-bold pb-4">Nổi bật</h2>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="mt-5 mb-5">
                     {{page}}
-                    <v-pagination :length="6" v-model="page" @click="changePage()"></v-pagination>
+                    <v-pagination :length="6" v-model="page"  ></v-pagination>
                 </div>
 
             </v-col>
@@ -130,7 +130,11 @@ export default {
         this.getNewestPost()
         this.findAllPost()
     },
-    computed:{
+    watch:{
+        page() {
+            this.findAllPost(this.page)
+            this.scrollToSection("hot-post")
+        },
     },
     methods: {
         async getNewestPost() {
@@ -153,15 +157,15 @@ export default {
             try {
                 const response = await axios.get(FIND_ALL + "?page=" + page);
                 this.listPost = response.data;
-                console.log(this.listPost)
             } catch (error) {
                 console.error(error);
             }
         },
-        changePage() {
-            this.findAllPost(this.page);
-            // this.findAllPost(this.page);
-        },
-    }
+        scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        section.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+}
+
+}
 };
 </script>

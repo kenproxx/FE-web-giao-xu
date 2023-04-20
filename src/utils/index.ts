@@ -7,8 +7,10 @@ const BASEURL = "http://localhost:8000"
  const EDIT = "/edit";
  const DELETE = "/create";
  const NEWEST = "/newest";
+ const TYPE = "/type";
 
 
 export const NEWEST_POST = BASEURL + POST + NEWEST;
 export const FIND_ALL = BASEURL + POST + ALL;
 export const FIND_BY_ID = BASEURL + POST + "?id=";
+export const GET_LIST_TAG = BASEURL + TYPE;

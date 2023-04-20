@@ -7,13 +7,12 @@
             <div>
               <h2 class="text-h4 font-weight-bold">ANIMAL</h2>
 
-              <h4 class="text-h6">Some category description goes here</h4>
             </div>
 
             <v-divider class="my-4"></v-divider>
 
             <v-row>
-              <v-col cols="12" md="6" lg="4" v-for="i in 18" :key="i">
+              <v-col cols="12" md="6" lg="4" v-for="i in 6" :key="i">
                 <v-hover
                   v-slot:default="{ hover }"
                   open-delay="50"
@@ -35,9 +34,6 @@
                         class="elevation-2"
                         style="border-radius: 16px"
                       >
-                        <v-card-text>
-                          <v-btn color="accent">ANIMAL</v-btn>
-                        </v-card-text>
                       </v-img>
 
                       <v-card-text>
@@ -62,7 +58,11 @@
                   </div>
                 </v-hover>
               </v-col>
+
             </v-row>
+              <div class="mt-5 mb-5">
+                  <v-pagination :length="6"></v-pagination>
+              </div>
           </div>
         </div>
       </v-col>

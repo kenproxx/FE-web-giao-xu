@@ -9,11 +9,11 @@
         </v-card-title>
         <v-card-text>
           <v-text-field
-              label="Email"
+              label="Tên đăng nhập"
               outlined
           ></v-text-field>
           <v-text-field
-              label="Password"
+              label="Mật khẩu"
               outlined
           ></v-text-field>
           <div class="text-right">

@@ -5,11 +5,10 @@
         <v-row align="start">
           <v-col cols="12" md="3">
             <h4 class="text-h5 font-weight-bold">
-              Giraffe
+              Giáo xứ Đại Từ - Giáo phận Bắc Ninh
             </h4>
             <p class="text-body-1">
-              Create, prototype, collaborate and turn your ideas into incredible
-              products with the definitive platform for digital design.
+              Địa chỉ: Tổ dân phố Xuân Đài - Thị trấn Hùng Sơn - Huyện Đại Từ - Tỉnh Thái Nguyên
             </p>
           </v-col>
 

@@ -13,9 +13,6 @@
               ></v-img>
 
               <v-card-text>
-                <div>
-                  <v-btn color="accent">ANIMAL</v-btn>
-                </div>
 
                 <div class="text-h4 font-weight-bold primary--text pt-4">
                   <h4>15 Things | have always wondered about birds</h4>
@@ -35,17 +32,7 @@
                     <div class="pl-2 text-body-1">Yan Lee · 22 July 2019</div>
                   </div>
 
-                  <div class="d-flex align-center">
-                    <div>
-                      <v-chip small color="transparent">
-                        <v-icon left>mdi-eye</v-icon>1.4k
-                      </v-chip>
 
-                      <v-chip small color="transparent">
-                        <v-icon left>mdi-comment-outline</v-icon>7 Comment
-                      </v-chip>
-                    </div>
-                  </div>
                 </div>
 
                 <v-divider class="my-4"></v-divider>
@@ -151,96 +138,29 @@
                     </v-row>
                   </div>
 
-                  <div class="text-h5">
-                    Share >
-                    <v-btn icon large>
-                      <v-icon large color="primary">mdi-facebook</v-icon>
-                    </v-btn>
+<!--                  <div class="text-h5">-->
+<!--                    Share >-->
+<!--                    <v-btn icon large>-->
+<!--                      <v-icon large color="primary">mdi-facebook</v-icon>-->
+<!--                    </v-btn>-->
 
-                    <v-btn icon large>
-                      <v-icon large color="primary">mdi-twitter</v-icon>
-                    </v-btn>
+<!--                    <v-btn icon large>-->
+<!--                      <v-icon large color="primary">mdi-twitter</v-icon>-->
+<!--                    </v-btn>-->
 
-                    <v-btn icon large>
-                      <v-icon large color="primary">mdi-linkedin</v-icon>
-                    </v-btn>
+<!--                    <v-btn icon large>-->
+<!--                      <v-icon large color="primary">mdi-linkedin</v-icon>-->
+<!--                    </v-btn>-->
 
-                    <v-btn icon large>
-                      <v-icon large color="primary">mdi-instagram</v-icon>
-                    </v-btn>
-                  </div>
+<!--                    <v-btn icon large>-->
+<!--                      <v-icon large color="primary">mdi-instagram</v-icon>-->
+<!--                    </v-btn>-->
+<!--                  </div>-->
+
                 </div>
 
                 <v-divider class="my-8"></v-divider>
 
-                <div class="my-8">
-                  <div class="d-flex align-center">
-                    <v-avatar color="accent" size="128">
-                      <v-icon dark size="100">mdi-feather</v-icon>
-                    </v-avatar>
-
-                    <div class="pl-4">
-                      <div class="text-h5 primary--text font-weight-bold">
-                        Written by
-                        <span class="accent--text">Yan Lee</span>
-                      </div>
-
-                      <div class="text-subtitle-1 my-2">
-                        Congue mauris rhoncus aenean vel elit. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Aliquet nec
-                        ullamcorper sit amet risus nullam eget felis.
-                      </div>
-
-                      <div class="text-subtitle-1">
-                        Get in touch >
-                        <v-btn icon>
-                          <v-icon>mdi-facebook</v-icon>
-                        </v-btn>
-
-                        <v-btn icon>
-                          <v-icon>mdi-twitter</v-icon>
-                        </v-btn>
-
-                        <v-btn icon>
-                          <v-icon>mdi-youtube</v-icon>
-                        </v-btn>
-
-                        <v-btn icon>
-                          <v-icon>mdi-instagram</v-icon>
-                        </v-btn>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <v-row justify="space-between">
-                    <v-col cols="12" md="6" lg="4">
-                      <div class="d-flex align-center">
-                        <div>
-                          <v-icon>mdi-arrow-left</v-icon>
-                        </div>
-
-                        <div class="text-h6 primary--text pl-2">
-                          <div class="text-subtitle-1">Previous Post</div>Photos of Jeep models that will change
-                          your mood
-                        </div>
-                      </div>
-                    </v-col>
-
-                    <v-col cols="12" md="6" lg="4">
-                      <div class="d-flex align-center text-right">
-                        <div class="text-h6 primary--text pr-2">
-                          <div class="text-subtitle-1">Next Post</div>What do I need to know to start learning
-                          JavaScript?
-                        </div>
-
-                        <div>
-                          <v-icon>mdi-arrow-right</v-icon>
-                        </div>
-                      </div>
-                    </v-col>
-                  </v-row>
-                </div>
               </v-card-text>
             </v-card>
           </div>

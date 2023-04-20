@@ -60,8 +60,8 @@
                 @click="$router.push('/')"
             >
               <v-icon color="primary" large>mdi-feather</v-icon>
-              Hero
-              <span class="accent--text">UI</span>
+              Giáo xứ
+              <span class="accent--text">Đại Từ</span>
             </v-toolbar-title>
           </v-col>
 
@@ -104,18 +104,9 @@
 export default {
   data: () => ({
     drawer: null,
-    btnItems: [
-      {
-        text: "Free Download",
-        href: "https://github.com/AGDholo/giraffe",
-        target: "_black",
-        color: "primary",
-        icon: "mdi-download",
-      },
-    ],
     barItems: [
       {
-        title: "Home",
+        title: "Trang chủ",
         to: "/",
       },
       {
@@ -127,7 +118,7 @@ export default {
         to: "/detail",
       },
       {
-        title: "Authors",
+        title: "Về Giáo xứ",
         to: "/authors",
       },
       {

@@ -9,5 +9,6 @@ const BASEURL = "http://localhost:8000"
  const NEWEST = "/newest";
 
 
-export const NEWEST_POST = BASEURL + POST + NEWEST
-export const FIND_ALL = BASEURL + POST + ALL
+export const NEWEST_POST = BASEURL + POST + NEWEST;
+export const FIND_ALL = BASEURL + POST + ALL;
+export const FIND_BY_ID = BASEURL + POST + "?id=";

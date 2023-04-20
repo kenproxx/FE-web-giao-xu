@@ -74,26 +74,11 @@
                 exact
                 exact-active-class="accent--text"
                 text
-            >{{ item.title }}
-            </v-btn
-            >
-          </v-col>
-
-          <v-col v-if="$vuetify.breakpoint.mdAndUp" class="text-right">
-            <v-btn
-                v-for="(item, i) in btnItems"
-                :key="i"
-                :color="item.color"
-                :href="item.href"
-                :outlined="item.outlined"
-                :target="item.target"
-                :to="item.to"
-                class="ml-3 text-capitalize"
-            >
-              <v-icon left>{{ item.icon }}</v-icon>
-              {{ item.text }}
+            > {{ item.title }}
             </v-btn>
           </v-col>
+
+
         </v-row>
       </v-container>
     </v-app-bar>
@@ -110,11 +95,11 @@ export default {
         to: "/",
       },
       {
-        title: "Category",
+        title: "Danh mục",
         to: "/category",
       },
       {
-        title: "Detail",
+        title: "Chi tiết",
         to: "/detail",
       },
       {
@@ -122,7 +107,7 @@ export default {
         to: "/authors",
       },
       {
-        title: "Login",
+        title: "Đăng nhập",
         to: "/login",
       },
     ],

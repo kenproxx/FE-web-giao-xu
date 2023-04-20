@@ -16,7 +16,7 @@
                             </v-col>
                             <v-col cols="12" lg="8" md="10" xl="7">
                                 <h2 class="text-h3 py-3" style="line-height: 1.2">
-                                    {{postNewest.title}}
+                                    {{ postNewest.title }}
                                 </h2>
                             </v-col>
                             <v-col class="d-flex align-center">
@@ -24,7 +24,8 @@
                                     <v-icon large>mdi-feather</v-icon>
                                 </v-avatar>
 
-                                <div class="text-h6 pl-2">{{postNewest.createdBy}} · {{postNewest.createdDate}}</div>
+                                <div class="text-h6 pl-2">{{ postNewest.createdBy }} · {{ postNewest.createdDate }}
+                                </div>
                             </v-col>
                         </v-row>
                     </v-card-text>
@@ -39,7 +40,7 @@
                         <h2 class="text-h4 font-weight-bold pb-4">Nổi bật</h2>
 
                         <v-row>
-                            <v-col v-for="i in 6" :key="i" cols="12" lg="4" md="6">
+                            <v-col v-for="(item, index) in listPost" :key="index" cols="12" lg="4" md="6">
                                 <v-hover
                                         v-slot:default="{ hover }"
                                         close-delay="50"
@@ -51,7 +52,7 @@
                                                 :elevation="hover ? 12 : 0"
                                                 flat
                                                 hover
-                                                to="/detail"
+                                                :to="{ name: 'Detail', params: { id: item.id } }"
                                         >
                                             <v-img
                                                     :aspect-ratio="16 / 9"
@@ -65,12 +66,11 @@
 
                                             <v-card-text>
                                                 <div class="text-h5 font-weight-bold primary--text">
-                                                    How to write an awesome blog post in 5 steps
+                                                    {{ item.title }}
                                                 </div>
 
                                                 <div class="text-body-1 py-4">
-                                                    Ultrices sagittis orci a scelerisque. Massa placerat
-                                                    duis ultricies lacus sed turpis
+                                                    {{ item.title }}
                                                 </div>
 
                                                 <div class="d-flex align-center">
@@ -78,7 +78,9 @@
                                                         <v-icon dark>mdi-feather</v-icon>
                                                     </v-avatar>
 
-                                                    <div class="pl-2">Yan Lee · 22 July 2019</div>
+                                                    <div class="pl-2">{{ item.createdBy }} ·
+                                                        {{ convertDate(item.createdDate) }}
+                                                    </div>
                                                 </div>
                                             </v-card-text>
                                         </v-card>
@@ -91,7 +93,8 @@
 
                 </div>
                 <div class="mt-5 mb-5">
-                    <v-pagination :length="6"></v-pagination>
+                    {{page}}
+                    <v-pagination :length="6" v-model="page" @click="changePage()"></v-pagination>
                 </div>
 
             </v-col>
@@ -117,14 +120,17 @@ export default {
     },
     data() {
         return {
-            postNewest:{},
+            postNewest: {},
             listPost: [],
+            page: 0,
 
         }
     },
     created() {
         this.getNewestPost()
         this.findAllPost()
+    },
+    computed:{
     },
     methods: {
         async getNewestPost() {
@@ -133,7 +139,6 @@ export default {
                 this.postNewest = response.data;
                 const createdDate = this.postNewest.createdDate;
                 this.postNewest.createdDate = this.convertDate(createdDate)
-                console.log(this.postNewest)
             } catch (error) {
                 console.error(error);
             }
@@ -144,14 +149,18 @@ export default {
             let formattedTime = date.toLocaleTimeString('en-GB');
             return `${formattedDate} - ${formattedTime}`
         },
-        async findAllPost() {
+        async findAllPost(page = 1) {
             try {
-                const response = await axios.get(FIND_ALL);
+                const response = await axios.get(FIND_ALL + "?page=" + page);
                 this.listPost = response.data;
                 console.log(this.listPost)
             } catch (error) {
                 console.error(error);
             }
+        },
+        changePage() {
+            this.findAllPost(this.page);
+            // this.findAllPost(this.page);
         },
     }
 };

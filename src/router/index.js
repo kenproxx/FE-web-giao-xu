@@ -37,7 +37,7 @@ const routes = [
     },
     {
         path: '/editor',
-        name: 'test editor',
+        name: 'Editor',
         component: () => import("@/views/Editor.vue"),
     }
 ]

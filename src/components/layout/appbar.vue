@@ -65,7 +65,7 @@
             </v-toolbar-title>
           </v-col>
 
-          <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="6">
+          <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="8">
             <v-btn
                 v-for="(item, i) in barItems"
                 :key="i"
@@ -109,6 +109,10 @@ export default {
       {
         title: "Đăng nhập",
         to: "/login",
+      },
+      {
+        title: "Quản lý",
+        to: "/manager",
       },
     ],
   }),

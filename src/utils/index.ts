@@ -14,3 +14,4 @@ export const NEWEST_POST = BASEURL + POST + NEWEST;
 export const FIND_ALL = BASEURL + POST + ALL;
 export const FIND_BY_ID = BASEURL + POST + "?id=";
 export const GET_LIST_TAG = BASEURL + TYPE;
+export const GET_LIST_POST_BY_TAG = BASEURL + POST + "/find-by-tag?tagId=";

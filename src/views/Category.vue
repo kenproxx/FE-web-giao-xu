@@ -12,7 +12,7 @@
             <v-divider class="my-4"></v-divider>
 
             <v-row>
-              <v-col cols="12" md="6" lg="4" v-for="i in 6" :key="i">
+              <v-col cols="12" md="6" lg="4" v-for="(item, index) in listPostByTag" :key="index">
                 <v-hover
                   v-slot:default="{ hover }"
                   open-delay="50"
@@ -38,12 +38,11 @@
 
                       <v-card-text>
                         <div class="text-h5 font-weight-bold primary--text">
-                          How to write an awesome blog post in 5 steps
+                          {{ item.title }}
                         </div>
 
                         <div class="text-body-1 py-4">
-                          Ultrices sagittis orci a scelerisque. Massa placerat
-                          duis ultricies lacus sed turpis
+                            {{ item.content }}
                         </div>
 
                         <div class="d-flex align-center">
@@ -51,7 +50,8 @@
                             <v-icon dark>mdi-feather</v-icon>
                           </v-avatar>
 
-                          <div class="pl-2">Yan Lee · 22 July 2019</div>
+                          <div class="pl-2">{{ item.createdBy }} ·
+                              {{ convertDate(item.createdDate) }}</div>
                         </div>
                       </v-card-text>
                     </v-card>
@@ -77,10 +77,41 @@
 </template>
 
 <script>
+import axios from "axios";
+import {GET_LIST_POST_BY_TAG, NEWEST_POST} from "@/utils";
+
 export default {
   name: "Category",
   components: {
     siderbar: () => import("@/components/details/sidebar"),
   },
+    data() {
+      return{
+          listPostByTag: [],
+          
+      }
+    },
+    created() {
+        this.getListPostByTagId();
+    },
+    methods:{
+        async getListPostByTagId(page = 1) {
+            try {
+                const tagId = this.$route.params.id;
+                const response = await axios.get(GET_LIST_POST_BY_TAG + tagId + "&page=" + page);
+                this.listPostByTag = response.data;
+                const createdDate = this.listPostByTag.createdDate;
+                this.listPostByTag.createdDate = this.convertDate(createdDate)
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        convertDate(dateString) {
+            let date = new Date(dateString);
+            let formattedDate = date.toLocaleDateString('en-GB');
+            let formattedTime = date.toLocaleTimeString('en-GB');
+            return `${formattedDate} - ${formattedTime}`
+        },
+    },
 };
 </script>

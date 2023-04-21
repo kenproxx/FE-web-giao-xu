@@ -6,10 +6,9 @@
 
             <v-divider></v-divider>
 
-            <v-card color="accent" dark flat v-for="(item, index) in listTag" :key="index" class="my-4">
+            <v-card color="accent" dark flat v-for="(item, index) in listTag" :key="index" class="my-4" :to="{ name: 'Category', params: { id: item[1] } }">
                 <v-card-text
                         class="d-flex justify-space-between align-center white--text" style="cursor: pointer"
-                        @click="getListPostByTagId(item[1])"
                 >
                     <h6 class="text-h6">{{ item[0] }}</h6>
 
@@ -43,9 +42,6 @@ export default {
             } catch (error) {
                 console.log(error)
             }
-        },
-        getListPostByTagId(id) {
-            console.log(id)
         },
     },
 

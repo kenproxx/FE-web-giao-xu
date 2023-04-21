@@ -12,7 +12,7 @@
                     <v-card-text class="fill-height d-flex align-end">
                         <v-row class="flex-column">
                             <v-col>
-                                <v-btn color="accent" to="category">Mới nhất</v-btn>
+                                <v-btn color="accent">Mới nhất</v-btn>
                             </v-col>
                             <v-col cols="12" lg="8" md="10" xl="7">
                                 <h2 class="text-h3 py-3" style="line-height: 1.2">
@@ -93,7 +93,6 @@
 
                 </div>
                 <div class="mt-5 mb-5">
-                    {{page}}
                     <v-pagination :length="6" v-model="page"  ></v-pagination>
                 </div>
 

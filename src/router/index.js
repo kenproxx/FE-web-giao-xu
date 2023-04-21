@@ -34,6 +34,11 @@ const routes = [
         path: '/manager',
         name: 'Mangager',
         component: () => import("@/views/Manager.vue"),
+    },
+    {
+        path: '/editor',
+        name: 'test editor',
+        component: () => import("@/views/Editor.vue"),
     }
 ]
 

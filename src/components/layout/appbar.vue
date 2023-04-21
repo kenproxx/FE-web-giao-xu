@@ -114,6 +114,10 @@ export default {
         title: "Quản lý",
         to: "/manager",
       },
+      {
+        title: "Editor",
+        to: "/editor",
+      },
     ],
   }),
 };

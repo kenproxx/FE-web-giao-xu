@@ -65,15 +65,15 @@
                                             </v-img>
 
                                             <v-card-text>
-                                                <div class="text-h5 font-weight-bold primary--text">
+                                                <div class="text-h5 font-weight-bold primary--text hidden-title">
                                                     {{ item.title }}
                                                 </div>
 
-                                                <div class="text-body-1 py-4">
-                                                    {{ item.title }}
+                                                <div class="text-body-1 hidden-content pt-4">
+                                                    {{ item.content }}
                                                 </div>
 
-                                                <div class="d-flex align-center">
+                                                <div class="d-flex align-center pt-4">
                                                     <v-avatar color="accent" size="36">
                                                         <v-icon dark>mdi-feather</v-icon>
                                                     </v-avatar>
@@ -161,9 +161,9 @@ export default {
             }
         },
         scrollToSection(sectionId) {
-        var section = document.getElementById(sectionId);
-        section.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-}
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+        }
 
 }
 };

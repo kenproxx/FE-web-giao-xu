@@ -1,10 +1,10 @@
 <template>
   <div>
-    <v-row>
+    <v-row >
       <v-col cols="12" lg="12" xl="8">
         <div>
           <div>
-            <div>
+            <div id="category">
               <h2 class="text-h4 font-weight-bold">ANIMAL</h2>
 
             </div>
@@ -37,15 +37,15 @@
                       </v-img>
 
                       <v-card-text>
-                        <div class="text-h5 font-weight-bold primary--text">
+                        <div class="text-h5 font-weight-bold primary--text hidden-title">
                           {{ item.title }}
                         </div>
 
-                        <div class="text-body-1 py-4">
+                        <div class="text-body-1 hidden-content pt-4">
                             {{ item.content }}
                         </div>
 
-                        <div class="d-flex align-center">
+                        <div class="d-flex align-center pt-4">
                           <v-avatar color="accent" size="36">
                             <v-icon dark>mdi-feather</v-icon>
                           </v-avatar>
@@ -61,7 +61,7 @@
 
             </v-row>
               <div class="mt-5 mb-5">
-                  <v-pagination :length="6"></v-pagination>
+                  <v-pagination :length="6" v-model="page"></v-pagination>
               </div>
           </div>
         </div>
@@ -88,11 +88,18 @@ export default {
     data() {
       return{
           listPostByTag: [],
-          
+          page: 1,
+
       }
     },
     created() {
         this.getListPostByTagId();
+    },
+    watch:{
+        page() {
+            this.getListPostByTagId(this.page)
+            this.scrollToSection("category")
+        },
     },
     methods:{
         async getListPostByTagId(page = 1) {
@@ -112,6 +119,24 @@ export default {
             let formattedTime = date.toLocaleTimeString('en-GB');
             return `${formattedDate} - ${formattedTime}`
         },
+        scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+        }
     },
 };
 </script>
+<style>
+ .hidden-content {
+     display: -webkit-box;
+     -webkit-line-clamp: 5; /* Số dòng tối đa trước khi nội dung bị ẩn */
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+ }
+ .hidden-title {
+     display: -webkit-box;
+     -webkit-line-clamp: 3; /* Số dòng tối đa trước khi nội dung bị ẩn */
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+ }
+</style>

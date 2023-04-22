@@ -20,7 +20,7 @@
 </template>
 <script>
 import axios from "axios";
-import {GET_LIST_TAG} from "@/utils";
+import {GET_LIST_TAG, GET_LIST_TAG_AND_COUNT} from "@/utils";
 
 export default {
     name: "SideBar",
@@ -36,7 +36,7 @@ export default {
     methods: {
         async getListTagAndCount() {
             try {
-                const response = await axios.get(GET_LIST_TAG);
+                const response = await axios.get(GET_LIST_TAG_AND_COUNT);
                 this.listTag = response.data;
                 console.log(this.listTag)
             } catch (error) {

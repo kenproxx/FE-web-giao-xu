@@ -11,12 +11,12 @@ const routes = [
         component: Home
     },
     {
-        path: '/category/:id',
+        path: '/phan-loai/:id',
         name: 'Category',
         component: () => import("@/views/Category.vue"),
     },
     {
-        path: '/detail/:id',
+        path: '/chi-tiet/:id',
         name: 'Detail',
         component: () => import("@/views/Detail.vue"),
     },

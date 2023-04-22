@@ -11,7 +11,7 @@
                             cols="12"
                     >
                         <v-text-field
-                                v-model="editedItem.name"
+                                v-model="newPost.title"
                                 label="Tiêu đề"
                         ></v-text-field>
                     </v-col>
@@ -19,39 +19,38 @@
                             cols="12"
                     >
                         <v-select
-                            v-model="value"
-                            :items="items"
-                            attach
-                            chips
-                            label="Thể loại"
-                            multiple
+                                v-model="tagSelected"
+                                :items="listTag"
+                                chips
+                                label="Thể loại"
+                                multiple
                         ></v-select>
                     </v-col>
                     <v-col
                             cols="6"
                     >
                         <v-file-input
-                            :rules="rules"
-                            accept="image/png, image/jpeg, image/bmp"
-                            placeholder="Chọn ảnh bìa"
-                            prepend-icon="mdi-camera"
-                            label="Ảnh bìa"
-                            v-model="thumbnail"
+                                :rules="rules"
+                                accept="image/png, image/jpeg, image/bmp"
+                                placeholder="Chọn ảnh bìa"
+                                prepend-icon="mdi-camera"
+                                label="Ảnh bìa"
+                                v-model="thumbnailImg"
                         />
                     </v-col>
                     <v-col
                             cols="6"
                     >
                         <v-switch
-                            v-model="switch1"
-                            flat
-                            :label="`Switch 1: ${switch1.toString()}`"
+                                v-model="newPost.status"
+                                flat
+                                :label="`Hiện bài viết: ${newPost.status.toString()}`"
                         ></v-switch>
                     </v-col>
                     <v-col
                             cols="12"
                     >
-                        <vue-editor v-model="content"/>
+                        <vue-editor v-model="newPost.content"/>
                     </v-col>
                 </v-row>
             </v-container>
@@ -70,7 +69,7 @@
             <v-btn
                     color="blue darken-1"
                     text
-                    @click="save"
+                    @click="createPost"
             >
                 Lưu
             </v-btn>
@@ -80,6 +79,8 @@
 
 <script>
 import {VueEditor} from "vue2-editor";
+import axios from "axios";
+import {CREATE_POST, GET_LIST_TAG} from "@/utils";
 
 export default {
     name: "PostManager",
@@ -87,34 +88,82 @@ export default {
         VueEditor,
     },
     data() {
-        return{
+        return {
+            listTag: [],
             items: ['foo', 'bar', 'fizz', 'buzz'],
-            value: ['foo', 'bar', 'fizz', 'buzz'],
+            tagSelected: [],
             switch1: true,
             content: '',
-            avatar: '',
+            thumbnailImg: '',
             rules: [
-                value => !value || value.size < 2000000 || 'Avatar size should be less than 2 MB!',
+                value => !value || value.size < 20000000 || 'Image size should be less than 20 MB!',
             ],
-            editedItem: {
-                name: '',
-                calories: 0,
-                fat: 0,
-                carbs: 0,
-                protein: 0,
+            newPost: {
+                status: true,
             },
         }
     },
     created() {
+        this.getListTag();
     },
     computed: {
-        formTitle () {
+        formTitle() {
             return this.editedIndex === -1 ? 'Tạo bài viết' : 'Sửa bài viết'
         },
     },
-    methods:{
+    methods: {
         close() {
             this.$router.go(-1);
+        },
+        async getListTag() {
+            try {
+                const response = await axios.get(GET_LIST_TAG);
+                response.data.forEach(e => {
+
+                    let item = {
+                        text: e.keyName,
+                        value: e.value
+                    }
+                    this.listTag.push(item)
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        },
+        async createPost() {
+            this.convertFileToString();
+            console.log(this.newPost);
+            try {
+
+                const instance = axios.create({
+                    baseURL: CREATE_POST,
+                });
+
+                instance.interceptors.request.use(config => {
+                        const token = sessionStorage.getItem('access_token');
+                        if (token) {
+                            config.headers['Authorization'] = `Bearer ${token}`;
+                        }
+                        return config;
+                    }
+                    , error => {
+                        return Promise.reject(error);
+                    });
+
+                const respone = instance.post(CREATE_POST, {data: {}})
+
+                console.log(respone)
+
+            } catch (error) {
+                console.log(error)
+            }
+        },
+        convertFileToString() {
+            let reader = new FileReader();
+            reader.onload = (event) => {
+                this.newPost.thumbnailImg = event.target.result;
+            };
+            reader.readAsDataURL(this.thumbnailImg);
         },
     }
 }

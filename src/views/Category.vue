@@ -24,7 +24,7 @@
                       :color="hover ? 'white' : 'transparent'"
                       :elevation="hover ? 12 : 0"
                       hover
-                      to="/detail"
+                      :to="{ name: 'Detail', params: { id: item.id } }"
                     >
                       <v-img
                         src="https://cdn.pixabay.com/photo/2016/11/14/04/45/elephant-1822636_1280.jpg"

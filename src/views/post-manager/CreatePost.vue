@@ -132,7 +132,6 @@ export default {
         },
         async createPost() {
             this.convertFileToString();
-            console.log(this.newPost);
             try {
 
                 const instance = axios.create({
@@ -150,7 +149,7 @@ export default {
                         return Promise.reject(error);
                     });
 
-                const respone = instance.post(CREATE_POST, {data: {}})
+                const respone = instance.post(CREATE_POST, this.newPost)
 
                 console.log(respone)
 

@@ -168,3 +168,17 @@ export default {
 }
 };
 </script>
+<style>
+.hidden-content {
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Số dòng tối đa trước khi nội dung bị ẩn */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.hidden-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Số dòng tối đa trước khi nội dung bị ẩn */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+</style>

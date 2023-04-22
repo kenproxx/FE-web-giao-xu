@@ -1,7 +1,15 @@
 <template>
+
     <div>
+        <div class="text-center">
+            <v-overlay :value="loading">
+                <v-progress-circular indeterminate></v-progress-circular>
+            </v-overlay>
+        </div>
+
         <div>
-            <v-card to="detail">
+            <v-card :to="{ name: 'Detail', params: { id: postNewest.id } }"
+            >
                 <v-img
                         :aspect-ratio="16 / 9"
                         dark
@@ -24,7 +32,7 @@
                                     <v-icon large>mdi-feather</v-icon>
                                 </v-avatar>
 
-                                <div class="text-h6 pl-2">{{ postNewest.createdBy }} · {{ postNewest.createdDate }}
+                                <div class="text-h6 pl-2">{{ postNewest.createdBy }} · {{ convertDate(postNewest.createdDate) }}
                                 </div>
                             </v-col>
                         </v-row>
@@ -34,7 +42,7 @@
         </div>
 
         <v-row id="hot-post">
-            <v-col cols="12" lg="12" xl="8" >
+            <v-col cols="12" lg="12" xl="8">
                 <div>
                     <div class="pt-16">
                         <h2 class="text-h4 font-weight-bold pb-4">Nổi bật</h2>
@@ -93,7 +101,7 @@
 
                 </div>
                 <div class="mt-5 mb-5">
-                    <v-pagination :length="6" v-model="page"  ></v-pagination>
+                    <v-pagination :length="6" v-model="page"></v-pagination>
                 </div>
 
             </v-col>
@@ -104,6 +112,7 @@
             </v-col>
 
         </v-row>
+
     </div>
 </template>
 
@@ -122,14 +131,18 @@ export default {
             postNewest: {},
             listPost: [],
             page: 0,
+            loading: false,
+
 
         }
     },
     created() {
+        this.loading = true;
         this.getNewestPost()
         this.findAllPost()
+
     },
-    watch:{
+    watch: {
         page() {
             this.findAllPost(this.page)
             this.scrollToSection("hot-post")
@@ -158,6 +171,8 @@ export default {
                 this.listPost = response.data;
             } catch (error) {
                 console.error(error);
+            } finally {
+                this.loading = false;
             }
         },
         scrollToSection(sectionId) {
@@ -165,7 +180,7 @@ export default {
             section.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
         }
 
-}
+    }
 };
 </script>
 <style>
@@ -175,6 +190,7 @@ export default {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
 .hidden-title {
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Số dòng tối đa trước khi nội dung bị ẩn */

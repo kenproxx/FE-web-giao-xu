@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div class="text-center">
+            <v-overlay :value="loading">
+                <v-progress-circular indeterminate ></v-progress-circular>
+            </v-overlay>
+        </div>
         <v-row>
             <v-col cols="12" lg="12" xl="8">
                 <div>
@@ -25,7 +30,7 @@
                                             <v-icon dark>mdi-feather</v-icon>
                                         </v-avatar>
 
-                                        <div class="pl-2 text-body-1">Yan Lee · 22 July 2019</div>
+                                        <div class="pl-2 text-body-1">{{ postDetail.createdBy }} · {{ convertDate(postDetail.createdDate) }}</div>
                                     </div>
 
 
@@ -187,10 +192,13 @@ export default {
     },
     data() {
         return{
-            postDetail: {}
+            postDetail: {},
+            loading: false,
+
         }
     },
     created() {
+        this.loading = true;
         this.findPostById(this.$route.params.id)
     },
     methods: {
@@ -200,8 +208,16 @@ export default {
                 this.postDetail = response.data;
             } catch (error) {
                 console.error(error);
+            } finally {
+                this.loading = false;
             }
         },
+        convertDate(dateString) {
+            let date = new Date(dateString);
+            let formattedDate = date.toLocaleDateString('en-GB');
+            let formattedTime = date.toLocaleTimeString('en-GB');
+            return `${formattedDate} - ${formattedTime}`
+        }
     }
 };
 </script>

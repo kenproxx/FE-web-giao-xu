@@ -1,4 +1,11 @@
 <template>
+    <div>
+        <div class="text-center">
+            <v-overlay :value="loading">
+                <v-progress-circular indeterminate></v-progress-circular>
+            </v-overlay>
+        </div>
+
     <v-card>
         <v-toolbar
                 flat
@@ -195,10 +202,14 @@
             </v-tab-item>
         </v-tabs>
     </v-card>
+    </div>
 </template>
 
 <script>
 import PostManager from "@/views/post-manager/CreatePost.vue";
+import axios from "axios";
+import {GET_ALL_POST} from "@/utils";
+import {apiGetAuthen} from "@/utils/api";
 
 export default {
     components: {PostManager},
@@ -300,6 +311,7 @@ export default {
             //     },
             // ],
             dialog: false,
+            loading: false,
             dialogDelete: false,
             headers: [
                 {
@@ -331,6 +343,8 @@ export default {
                 carbs: 0,
                 protein: 0,
             },
+            listPost: [],
+
         }
     },
     watch: {
@@ -342,7 +356,9 @@ export default {
         },
     },
     created () {
-        this.initialize()
+        this.loading = true;
+        this.getAllPost();
+        this.initialize();
     },
     computed: {
         formTitle () {
@@ -423,7 +439,8 @@ export default {
                     carbs: 65,
                     protein: 7,
                 },
-            ]
+            ];
+            this.loading = false;
         },
 
         editItem (item) {
@@ -466,6 +483,17 @@ export default {
                 this.desserts.push(this.editedItem)
             }
             this.close()
+        },
+        async getAllPost() {
+            try {
+                const response = await apiGetAuthen(GET_ALL_POST);
+                this.listPost = response.data;
+                console.log(this.listPost)
+                // const createdDate = this.postNewest.createdDate;
+                // this.postNewest.createdDate = this.convertDate(createdDate)
+            } catch (error) {
+                console.error(error);
+            }
         },
     },
 }

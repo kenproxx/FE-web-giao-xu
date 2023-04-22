@@ -39,6 +39,11 @@ const routes = [
         path: '/editor',
         name: 'Editor',
         component: () => import("@/views/Editor.vue"),
+    },
+    {
+        path: '/create-post',
+        name: 'CreatePost',
+        component: () => import("@/views/post-manager/CreatePost.vue"),
     }
 ]
 

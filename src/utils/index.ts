@@ -11,6 +11,7 @@ const BASEURL = "http://localhost:8000"
  const ADMIN = "/admin";
  const LOGINN = "/login";
  const REGISTER = "/register";
+ const LOG = "/logs";
 
 
 export const NEWEST_POST = BASEURL + POST + NEWEST;
@@ -23,3 +24,4 @@ export const FIND_BY_ID = BASEURL + POST + "?id=";
 export const GET_LIST_TAG_AND_COUNT = BASEURL + TYPE;
 export const GET_LIST_TAG = BASEURL + TAG + ALL;
 export const GET_LIST_POST_BY_TAG = BASEURL + POST + "/find-by-tag?tagId=";
+export const GET_LIST_LOG = BASEURL + ADMIN + LOG + ALL;

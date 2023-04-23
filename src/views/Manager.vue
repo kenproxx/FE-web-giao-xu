@@ -17,13 +17,13 @@
             <v-tabs vertical>
                 <v-tab>
                     <v-icon left>
-                        mdi-account
+                        mdi-post
                     </v-icon>
                     Quản lý bài viết
                 </v-tab>
                 <v-tab>
                     <v-icon left>
-                        mdi-lock
+                        mdi-history
                     </v-icon>
                     Lịch sử thao tác
                 </v-tab>
@@ -68,91 +68,9 @@
                                     >
                                         Tạo mới
                                     </v-btn>
-                                    <!--                                    <v-card>-->
-                                    <!--                                        <v-card-title>-->
-                                    <!--                                            <span class="text-h5">{{ formTitle }}</span>-->
-                                    <!--                                        </v-card-title>-->
-
-                                    <!--                                        <v-card-text>-->
-                                    <!--                                            <v-container>-->
-                                    <!--                                                <v-row>-->
-                                    <!--                                                    <v-col-->
-                                    <!--                                                        cols="12"-->
-                                    <!--                                                        sm="6"-->
-                                    <!--                                                        md="4"-->
-                                    <!--                                                    >-->
-                                    <!--                                                        <v-text-field-->
-                                    <!--                                                            v-model="editedItem.name"-->
-                                    <!--                                                            label="Dessert name"-->
-                                    <!--                                                        ></v-text-field>-->
-                                    <!--                                                    </v-col>-->
-                                    <!--                                                    <v-col-->
-                                    <!--                                                        cols="12"-->
-                                    <!--                                                        sm="6"-->
-                                    <!--                                                        md="4"-->
-                                    <!--                                                    >-->
-                                    <!--                                                        <v-text-field-->
-                                    <!--                                                            v-model="editedItem.calories"-->
-                                    <!--                                                            label="Calories"-->
-                                    <!--                                                        ></v-text-field>-->
-                                    <!--                                                    </v-col>-->
-                                    <!--                                                    <v-col-->
-                                    <!--                                                        cols="12"-->
-                                    <!--                                                        sm="6"-->
-                                    <!--                                                        md="4"-->
-                                    <!--                                                    >-->
-                                    <!--                                                        <v-text-field-->
-                                    <!--                                                            v-model="editedItem.fat"-->
-                                    <!--                                                            label="Fat (g)"-->
-                                    <!--                                                        ></v-text-field>-->
-                                    <!--                                                    </v-col>-->
-                                    <!--                                                    <v-col-->
-                                    <!--                                                        cols="12"-->
-                                    <!--                                                        sm="6"-->
-                                    <!--                                                        md="4"-->
-                                    <!--                                                    >-->
-                                    <!--                                                        <v-text-field-->
-                                    <!--                                                            v-model="editedItem.carbs"-->
-                                    <!--                                                            label="Carbs (g)"-->
-                                    <!--                                                        ></v-text-field>-->
-                                    <!--                                                    </v-col>-->
-                                    <!--                                                    <v-col-->
-                                    <!--                                                        cols="12"-->
-                                    <!--                                                        sm="6"-->
-                                    <!--                                                        md="4"-->
-                                    <!--                                                    >-->
-                                    <!--                                                        <v-text-field-->
-                                    <!--                                                            v-model="editedItem.protein"-->
-                                    <!--                                                            label="Protein (g)"-->
-                                    <!--                                                        ></v-text-field>-->
-                                    <!--                                                    </v-col>-->
-                                    <!--                                                </v-row>-->
-                                    <!--                                            </v-container>-->
-                                    <!--                                        </v-card-text>-->
-
-                                    <!--                                        <v-card-actions>-->
-                                    <!--                                            <v-spacer></v-spacer>-->
-                                    <!--                                            <v-btn-->
-                                    <!--                                                color="blue darken-1"-->
-                                    <!--                                                text-->
-                                    <!--                                                @click="close"-->
-                                    <!--                                            >-->
-                                    <!--                                                Hủy-->
-                                    <!--                                            </v-btn>-->
-                                    <!--                                            <v-btn-->
-                                    <!--                                                color="blue darken-1"-->
-                                    <!--                                                text-->
-                                    <!--                                                @click="save"-->
-                                    <!--                                            >-->
-                                    <!--                                                Lưu-->
-                                    <!--                                            </v-btn>-->
-                                    <!--                                        </v-card-actions>-->
-                                    <!--                                    </v-card>-->
-
-
-                                    <v-dialog v-model="dialogDelete" max-width="500px">
+                                    <v-dialog v-model="dialogDelete" max-width="530px">
                                         <v-card>
-                                            <v-card-title class="text-h5">Bạn có muốn ẩn bài viết này?</v-card-title>
+                                            <v-card-title class="text-h5">Bạn có muốn thay đổi trạng thái bài viết này?</v-card-title>
                                             <v-card-actions>
                                                 <v-spacer></v-spacer>
                                                 <v-btn color="blue darken-1" text @click="closeDelete">Hủy</v-btn>
@@ -170,6 +88,15 @@
                                     }}
                                 </div>
                             </template>
+
+                            <template v-slot:item.status="{ item }">
+                                <v-chip
+                                    :color="getColor(item.status)"
+                                    dark
+                                >
+                                    {{ textStatus(item.status) }}
+                                </v-chip>
+                            </template>
                             <template v-slot:item.actions="{ item }">
                                 <v-icon
                                         small
@@ -182,7 +109,7 @@
                                         small
                                         @click="deleteItem(item)"
                                 >
-                                    mdi-delete
+                                    mdi-swap-horizontal
                                 </v-icon>
                             </template>
                             <template v-slot:no-data>
@@ -219,20 +146,6 @@ export default {
     components: {ViewLog, PostManager},
     data() {
         return {
-            headerLog: [
-                {
-                    text: 'STT',
-                    align: 'start',
-                    value: 'number',
-                },
-                {
-                    text: 'Giá trị',
-                    value: 'value',
-                },
-                {text: 'Người tạo', value: 'createdBy', width: 120},
-                {text: 'Ngày tạo', value: 'createdDate', width: 120},
-            ],
-            dataLog: [],
             dialog: false,
             loading: false,
             dialogDelete: false,
@@ -252,13 +165,6 @@ export default {
             desserts: [],
             editedIndex: -1,
             editedItem: {
-                name: '',
-                calories: 0,
-                fat: 0,
-                carbs: 0,
-                protein: 0,
-            },
-            defaultItem: {
                 name: '',
                 calories: 0,
                 fat: 0,
@@ -326,18 +232,10 @@ export default {
 
         close() {
             this.dialog = false
-            this.$nextTick(() => {
-                this.editedItem = Object.assign({}, this.defaultItem)
-                this.editedIndex = -1
-            })
         },
 
         closeDelete() {
             this.dialogDelete = false
-            this.$nextTick(() => {
-                this.editedItem = Object.assign({}, this.defaultItem)
-                this.editedIndex = -1
-            })
         },
 
         save() {
@@ -373,6 +271,9 @@ export default {
 
         textStatus(status) {
             return status ? "Đang được hiện" : "Đang bị ẩn";
+        },
+        getColor (isStatus) {
+            return !isStatus ? 'red' : 'green';
         },
 
     },

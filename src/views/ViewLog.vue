@@ -11,7 +11,15 @@
                 :items="listLog"
                 :items-per-page="5"
                 class="elevation-1"
-        ></v-data-table>
+        >
+            <template v-slot:top>
+                <v-toolbar
+                        flat
+                >
+                    <v-toolbar-title>Danh sách bài viết</v-toolbar-title>
+                </v-toolbar>
+            </template>
+        </v-data-table>
     </div>
 </template>
 

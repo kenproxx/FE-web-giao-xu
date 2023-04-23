@@ -32,10 +32,11 @@
                 <v-card flat>
 
                     <v-data-table
-                        :headers="headers"
-                        :items="desserts"
+                        :headers="headerListPost"
+                        :items="listPost"
                         sort-by="calories"
                         class="elevation-1"
+                        @click:row="selectRow"
                     >
 
                         <template v-slot:top>
@@ -178,7 +179,6 @@
                         <template v-slot:no-data>
                             <v-btn
                                 color="primary"
-                                @click="initialize"
                             >
                                 Reset
                             </v-btn>
@@ -207,9 +207,8 @@
 
 <script>
 import PostManager from "@/views/post-manager/CreatePost.vue";
-import axios from "axios";
-import {GET_ALL_POST} from "@/utils";
-import {apiGetAuthen} from "@/utils/api";
+import {CHANGE_STATUS_POST, GET_ALL_POST} from "@/utils";
+import {apiGetAuthen, apiPutAuthen} from "@/utils/api";
 
 export default {
     components: {PostManager},
@@ -313,18 +312,17 @@ export default {
             dialog: false,
             loading: false,
             dialogDelete: false,
-            headers: [
+            headerListPost: [
                 {
                     text: 'Tiêu đề',
                     align: 'start',
-                    sortable: false,
-                    value: 'name',
+                    value: 'title',
                 },
-                { text: 'Người tạo', value: 'calories' },
-                { text: 'Ngày tạo', value: 'fat' },
-                { text: 'Người cập nhật', value: 'carbs' },
-                { text: 'Ngày cập nhật', value: 'protein' },
-                { text: 'Trạng thái', value: 'protein' },
+                { text: 'Người tạo', value: 'createdBy' },
+                { text: 'Ngày tạo', value: 'createdDate' },
+                { text: 'Người cập nhật', value: 'updatedBy' },
+                { text: 'Ngày cập nhật', value: 'updatedDate' },
+                { text: 'Trạng thái', value: 'status' },
                 { text: 'Thao tác', value: 'actions', sortable: false },
             ],
             desserts: [],
@@ -344,6 +342,8 @@ export default {
                 protein: 0,
             },
             listPost: [],
+            idCurrentRowNow: '',
+
 
         }
     },
@@ -358,7 +358,6 @@ export default {
     created () {
         this.loading = true;
         this.getAllPost();
-        this.initialize();
     },
     computed: {
         formTitle () {
@@ -367,81 +366,6 @@ export default {
     },
 
     methods: {
-        initialize () {
-            this.desserts = [
-                {
-                    name: 'Frozen Yogurt',
-                    calories: 159,
-                    fat: 6.0,
-                    carbs: 24,
-                    protein: 4.0,
-                },
-                {
-                    name: 'Ice cream sandwich',
-                    calories: 237,
-                    fat: 9.0,
-                    carbs: 37,
-                    protein: 4.3,
-                },
-                {
-                    name: 'Eclair',
-                    calories: 262,
-                    fat: 16.0,
-                    carbs: 23,
-                    protein: 6.0,
-                },
-                {
-                    name: 'Cupcake',
-                    calories: 305,
-                    fat: 3.7,
-                    carbs: 67,
-                    protein: 4.3,
-                },
-                {
-                    name: 'Gingerbread',
-                    calories: 356,
-                    fat: 16.0,
-                    carbs: 49,
-                    protein: 3.9,
-                },
-                {
-                    name: 'Jelly bean',
-                    calories: 375,
-                    fat: 0.0,
-                    carbs: 94,
-                    protein: 0.0,
-                },
-                {
-                    name: 'Lollipop',
-                    calories: 392,
-                    fat: 0.2,
-                    carbs: 98,
-                    protein: 0,
-                },
-                {
-                    name: 'Honeycomb',
-                    calories: 408,
-                    fat: 3.2,
-                    carbs: 87,
-                    protein: 6.5,
-                },
-                {
-                    name: 'Donut',
-                    calories: 452,
-                    fat: 25.0,
-                    carbs: 51,
-                    protein: 4.9,
-                },
-                {
-                    name: 'KitKat',
-                    calories: 518,
-                    fat: 26.0,
-                    carbs: 65,
-                    protein: 7,
-                },
-            ];
-            this.loading = false;
-        },
 
         editItem (item) {
             this.editedIndex = this.desserts.indexOf(item)
@@ -455,9 +379,19 @@ export default {
             this.dialogDelete = true
         },
 
-        deleteItemConfirm () {
-            this.desserts.splice(this.editedIndex, 1)
-            this.closeDelete()
+        async deleteItemConfirm() {
+            try {
+                this.dialogDelete = false
+                this.loading = true;
+                await apiPutAuthen(CHANGE_STATUS_POST + this.idCurrentRowNow);
+                this.getAllPost();
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
+        selectRow(item) {
+            this.idCurrentRowNow = item.id;
         },
 
         close () {
@@ -486,14 +420,25 @@ export default {
         },
         async getAllPost() {
             try {
+                this.loading = true;
                 const response = await apiGetAuthen(GET_ALL_POST);
+                response.data.map( e => {
+                    e.createdDate = this.convertArrayDate2Date(e.createdDate)
+                    e.updatedDate = this.convertArrayDate2Date(e.updatedDate)
+                })
                 this.listPost = response.data;
-                console.log(this.listPost)
-                // const createdDate = this.postNewest.createdDate;
-                // this.postNewest.createdDate = this.convertDate(createdDate)
             } catch (error) {
                 console.error(error);
+            } finally {
+                this.loading = false;
             }
+        },
+        convertArrayDate2Date(dateArray) {
+            if (dateArray !== null) {
+                const dateObj = new Date(...dateArray);
+                return dateObj.toLocaleDateString('en-GB');
+            }
+            return null;
         },
     },
 }

@@ -1,4 +1,11 @@
 <template>
+    <div>
+        <div class="text-center">
+            <v-overlay :value="loading">
+                <v-progress-circular indeterminate></v-progress-circular>
+            </v-overlay>
+        </div>
+
     <v-row class="d-flex justify-center align-center fill-height" style="min-height: 100vh">
         <v-col cols="12" md="6">
             <v-card class="py-6">
@@ -8,7 +15,7 @@
                     </div>
                 </v-card-title>
                 <v-card-text>
-                    <v-form ref="form">
+                    <v-form @input="validateForm" ref="form">
                         <v-text-field
                                 label="Tên đăng nhập"
                                 v-model="loginForm.username"
@@ -38,6 +45,7 @@
             </v-card>
         </v-col>
     </v-row>
+    </div>
 </template>
 <script>
 import axios from "axios";
@@ -49,6 +57,7 @@ export default {
         return {
             loginForm: {},
             isFormValid: false,
+            loading: false,
             rules: {
                 passwordRules: [
                     v => !!v || 'Vui lòng nhập mật khẩu',
@@ -70,6 +79,7 @@ export default {
     methods: {
         async login() {
             try {
+                this.loading = true;
                 const response = await axios.post(LOGIN, this.loginForm);
                 const data = response.data;
                 const token = data.accessToken;
@@ -77,6 +87,7 @@ export default {
                 this.$router.push('/manager');
             } catch (error) {
                 console.error(error);
+                this.loading = false;
             }
         },
         validateForm() {

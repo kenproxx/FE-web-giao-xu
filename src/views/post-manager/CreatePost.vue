@@ -1,4 +1,10 @@
 <template>
+    <div>
+        <div class="text-center">
+            <v-overlay :value="loading">
+                <v-progress-circular indeterminate></v-progress-circular>
+            </v-overlay>
+        </div>
     <v-card>
         <v-card-title>
             <span class="text-h5">Tạo bài viết</span>
@@ -75,6 +81,8 @@
             </v-btn>
         </v-card-actions>
     </v-card>
+    </div>
+
 </template>
 
 <script>
@@ -93,6 +101,7 @@ export default {
             items: ['foo', 'bar', 'fizz', 'buzz'],
             tagSelected: [],
             switch1: true,
+            loading: false,
             content: '',
             thumbnailImg: '',
             rules: [
@@ -133,7 +142,7 @@ export default {
         async createPost() {
             this.convertFileToString();
             try {
-
+                this.loading = true;
                 const instance = axios.create({
                     baseURL: CREATE_POST,
                 });
@@ -154,6 +163,8 @@ export default {
 
             } catch (error) {
                 console.log(error)
+            } finally {
+                this.loading = false;
             }
         },
         convertFileToString() {

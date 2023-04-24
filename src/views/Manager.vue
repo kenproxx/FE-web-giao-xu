@@ -190,17 +190,6 @@ export default {
         this.getAllPost();
     },
     computed: {
-        formTitle() {
-            return this.editedIndex === -1 ? 'Tạo bài viết' : 'Sửa bài viết'
-        },
-        itemsWithNumber() {
-            return this.items.map((item, index) => {
-                return {
-                    ...item,
-                    number: index + 1
-                }
-            })
-        }
     },
 
     methods: {

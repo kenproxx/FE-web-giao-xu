@@ -15,7 +15,7 @@
                         dark
                         gradient="to top, rgba(25,32,72,.7), rgba(25,32,72,.0)"
                         height="500px"
-                        src="https://images.pexels.com/photos/3244513/pexels-photo-3244513.jpeg"
+                        :src="postNewest.thumbnailImg"
                 >
                     <v-card-text class="fill-height d-flex align-end">
                         <v-row class="flex-column">
@@ -32,7 +32,8 @@
                                     <v-icon large>mdi-feather</v-icon>
                                 </v-avatar>
 
-                                <div class="text-h6 pl-2">{{ postNewest.createdBy }} · {{ convertDate(postNewest.createdDate) }}
+                                <div class="text-h6 pl-2">{{ postNewest.createdBy }} ·
+                                    {{ convertDate(postNewest.createdDate) }}
                                 </div>
                             </v-col>
                         </v-row>
@@ -67,7 +68,7 @@
                                                     class="elevation-2"
                                                     gradient="to top, rgba(25,32,72,.4), rgba(25,32,72,.0)"
                                                     height="200px"
-                                                    src="https://cdn.pixabay.com/photo/2020/12/23/14/41/forest-5855196_1280.jpg"
+                                                    :src="item.thumbnailImg"
                                                     style="border-radius: 16px"
                                             >
                                             </v-img>
@@ -77,9 +78,7 @@
                                                     {{ item.title }}
                                                 </div>
 
-                                                <div class="text-body-1 hidden-content pt-4">
-                                                    {{ item.content }}
-                                                </div>
+                                                <div class="text-body-1 hidden-content pt-4" v-html="item.content"/>
 
                                                 <div class="d-flex align-center pt-4">
                                                     <v-avatar color="accent" size="36">

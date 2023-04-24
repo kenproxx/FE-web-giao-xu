@@ -8,7 +8,7 @@
                     </div>
                 </v-card-title>
                 <v-card-text>
-                    <v-form @input="validateForm" ref="form">
+                    <v-form ref="form">
                         <v-text-field
                                 label="Tên đăng nhập"
                                 v-model="loginForm.username"

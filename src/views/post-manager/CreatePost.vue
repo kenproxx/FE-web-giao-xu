@@ -149,9 +149,8 @@ export default {
                         return Promise.reject(error);
                     });
 
-                const respone = instance.post(CREATE_POST, this.newPost)
-
-                console.log(respone)
+                await instance.post(CREATE_POST, this.newPost)
+                this.$router.go(-1);
 
             } catch (error) {
                 console.log(error)

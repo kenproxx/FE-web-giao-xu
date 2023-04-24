@@ -101,7 +101,7 @@
                                 <v-icon
                                         small
                                         class="mr-2"
-                                        @click="editItem(item)"
+                                        @click="editItem(item.id)"
                                 >
                                     mdi-pencil
                                 </v-icon>
@@ -194,10 +194,9 @@ export default {
 
     methods: {
 
-        editItem(item) {
-            this.editedIndex = this.desserts.indexOf(item)
-            this.editedItem = Object.assign({}, item)
-            this.dialog = true
+        editItem(id) {
+            let link = '/edit-post/' + id;
+            this.$router.push(link);
         },
 
         deleteItem(item) {

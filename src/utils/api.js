@@ -24,7 +24,7 @@ export function apiGetAuthen(api) {
         console.log(error)
     }
 }
-export function apiPutAuthen(api) {
+export function apiPutAuthen(api, data = null) {
     try {
         const instance = axios.create({
             baseURL: api,
@@ -41,7 +41,7 @@ export function apiPutAuthen(api) {
                 return Promise.reject(error);
             });
 
-        return instance.put(api);
+        return instance.put(api, data);
 
     } catch (error) {
         console.log(error)

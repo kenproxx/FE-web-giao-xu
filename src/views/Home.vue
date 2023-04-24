@@ -70,6 +70,7 @@
                                                     height="200px"
                                                     :src="item.thumbnailImg"
                                                     style="border-radius: 16px"
+                                                    :cover="true"
                                             >
                                             </v-img>
 
@@ -95,7 +96,6 @@
                                 </v-hover>
                             </v-col>
                         </v-row>
-
                     </div>
 
                 </div>

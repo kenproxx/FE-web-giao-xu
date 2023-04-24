@@ -1,107 +1,171 @@
 <template>
-    <v-card>
-        <v-card-title>
-            <span class="text-h5">{{ formTitle }}</span>
-        </v-card-title>
+    <div>
+        <div class="text-center">
+            <v-overlay :value="loading">
+                <v-progress-circular indeterminate></v-progress-circular>
+            </v-overlay>
+        </div>
+        <v-card>
+            <v-card-title>
+                <span class="text-h5">Sửa bài viết</span>
+            </v-card-title>
 
-        <v-card-text>
-            <v-container>
-                <v-row>
-                    <v-col
+            <v-card-text>
+                <v-container>
+                    <v-row>
+                        <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
-                    >
-                        <v-text-field
-                                v-model="editedItem.name"
-                                label="Dessert name"
-                        ></v-text-field>
-                    </v-col>
-                    <v-col
+                        >
+                            <v-text-field
+                                v-model="postEdit.title"
+                                label="Tiêu đề"
+                            ></v-text-field>
+                        </v-col>
+                        <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
-                    >
-                        <v-text-field
-                                v-model="editedItem.calories"
-                                label="Calories"
-                        ></v-text-field>
-                    </v-col>
-                    <v-col
+                        >
+                            <v-select
+                                v-model="tagSelected"
+                                :items="listTag"
+                                chips
+                                label="Thể loại"
+                                multiple
+                            ></v-select>
+                        </v-col>
+                        <v-col
+                            cols="6"
+                        >
+                            <v-file-input
+                                :rules="rules"
+                                accept="image/png, image/jpeg, image/bmp"
+                                placeholder="Chọn ảnh bìa"
+                                prepend-icon="mdi-camera"
+                                label="Ảnh bìa"
+                                v-model="thumbnailImg"
+                            />
+                        </v-col>
+                        <v-col
+                            cols="6"
+                        >
+                            <v-switch
+                                v-model="postEdit.status"
+                                flat
+                                :label="`Hiện bài viết: ${postEdit.status.toString()}`"
+                            ></v-switch>
+                        </v-col>
+                        <v-col
                             cols="12"
-                            sm="6"
-                            md="4"
-                    >
-                        <v-text-field
-                                v-model="editedItem.fat"
-                                label="Fat (g)"
-                        ></v-text-field>
-                    </v-col>
-                    <v-col
-                            cols="12"
-                            sm="6"
-                            md="4"
-                    >
-                        <v-text-field
-                                v-model="editedItem.carbs"
-                                label="Carbs (g)"
-                        ></v-text-field>
-                    </v-col>
-                    <v-col
-                            cols="12"
-                            sm="6"
-                            md="4"
-                    >
-                        <v-text-field
-                                v-model="editedItem.protein"
-                                label="Pro123tein (g)"
-                        ></v-text-field>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-card-text>
+                        >
+                            <vue-editor v-model="postEdit.content"/>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-card-text>
 
-        <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
                     color="blue darken-1"
                     text
                     @click="close"
-            >
-                Hủy
-            </v-btn>
-            <v-btn
+
+                >
+                    Hủy
+                </v-btn>
+                <v-btn
                     color="blue darken-1"
                     text
-                    @click="save"
-            >
-                Lưu
-            </v-btn>
-        </v-card-actions>
-    </v-card>
+                    @click="savePost"
+                >
+                    Lưu
+                </v-btn>
+            </v-card-actions>
+        </v-card>
+    </div>
+
 </template>
 
 <script>
+import {VueEditor} from "vue2-editor";
+import axios from "axios";
+import {CREATE_POST, EDIT_POST, FIND_BY_ID, GET_LIST_TAG} from "@/utils";
+import {apiPutAuthen} from "@/utils/api";
+
 export default {
     name: "PostManager",
+    components: {
+        VueEditor,
+    },
     data() {
-        return{
-            editedItem: {
-                name: '',
-                calories: 0,
-                fat: 0,
-                carbs: 0,
-                protein: 0,
+        return {
+            listTag: [],
+            tagSelected: [],
+            switch1: true,
+            loading: false,
+            content: '',
+            thumbnailImg: '',
+            rules: [
+                value => !value || value.size < 20000000 || 'Image size should be less than 20 MB!',
+            ],
+            postEdit: {
+                status: true,
             },
         }
     },
     created() {
+        this.loading = true;
+        this.getListTag();
+        this.findPostById(this.$route.params.id)
     },
-    computed: {
-        formTitle () {
-            return this.editedIndex === -1 ? 'Tạo bài viết' : 'Sửa bài viết'
+    methods: {
+        close() {
+            this.$router.go(-1);
         },
-    },
+        async findPostById(id) {
+            try {
+                const response = await axios.get(FIND_BY_ID + id);
+                this.postEdit = response.data;
+            } catch (error) {
+                console.error(error);
+            } finally {
+                this.loading = false;
+            }
+        },
+        async getListTag() {
+            try {
+                const response = await axios.get(GET_LIST_TAG);
+                response.data.forEach(e => {
+
+                    let item = {
+                        text: e.keyName,
+                        value: e.value
+                    }
+                    this.listTag.push(item)
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        },
+        async savePost() {
+            try {
+                this.loading = true;
+                this.convertFileToString();
+                await apiPutAuthen(EDIT_POST, this.postEdit);
+                this.$router.go(-1);
+            } catch (error){
+                console.log(error)
+            } finally {
+                this.loading = false;
+            }
+        },
+        convertFileToString() {
+            let reader = new FileReader();
+            reader.onload = (event) => {
+                this.postEdit.thumbnailImg = event.target.result;
+            };
+            reader.readAsDataURL(this.thumbnailImg);
+        },
+    }
 }
 </script>
 

@@ -42,6 +42,7 @@
                                 prepend-icon="mdi-camera"
                                 label="Ảnh bìa"
                                 v-model="thumbnailImg"
+                                :show-size="true"
                         />
                     </v-col>
                     <v-col
@@ -98,7 +99,6 @@ export default {
     data() {
         return {
             listTag: [],
-            items: ['foo', 'bar', 'fizz', 'buzz'],
             tagSelected: [],
             switch1: true,
             loading: false,
@@ -114,11 +114,6 @@ export default {
     },
     created() {
         this.getListTag();
-    },
-    computed: {
-        formTitle() {
-            return this.editedIndex === -1 ? 'Tạo bài viết' : 'Sửa bài viết'
-        },
     },
     methods: {
         close() {

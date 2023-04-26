@@ -40,7 +40,7 @@ export default {
                     width: 100
                 },
                 {
-                    text: 'Giá trị',
+                    text: 'Nội dung',
                     value: 'value',
                 },
                 {text: 'Người tạo', value: 'createdBy', width: 120},

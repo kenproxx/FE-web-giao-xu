@@ -37,6 +37,9 @@
                                 sort-by="calories"
                                 class="elevation-1"
                                 :scroll-x="true"
+                                :items-per-page.sync="pageSize"
+                                :page.sync="page"
+                                :server-items-length.sync="totalItem"
                         >
                             <template v-slot:item.title="{ item }">
                                 <div class="hidden-text">{{ item.title }}</div>
@@ -138,7 +141,7 @@
 
 <script>
 import PostManager from "@/views/post-manager/CreatePost.vue";
-import {CHANGE_STATUS_POST, GET_ALL_POST} from "@/utils";
+import {CHANGE_STATUS_POST, GET_ALL_POST, GET_COUNT_POST} from "@/utils";
 import {apiGetAuthen, apiPutAuthen} from "@/utils/api";
 import ViewLog from "@/views/ViewLog.vue";
 
@@ -164,6 +167,10 @@ export default {
             ],
             desserts: [],
             editedIndex: -1,
+            pagination: {},
+            page: 1,
+            pageSize: 5,
+            totalItem: 5,
             editedItem: {
                 name: '',
                 calories: 0,
@@ -184,9 +191,18 @@ export default {
         dialogDelete(val) {
             val || this.closeDelete()
         },
+        pageSize() {
+            this.getAllPost();
+        },
+        page() {
+            this.getAllPost();
+        },
+    },
+    beforeCreate() {
     },
     created() {
         this.loading = true;
+        this.getCountPost();
         this.getAllPost();
     },
     computed: {
@@ -237,7 +253,8 @@ export default {
         async getAllPost() {
             try {
                 this.loading = true;
-                const response = await apiGetAuthen(GET_ALL_POST);
+                const url = GET_ALL_POST + '?page=' + this.page + '&pageSize=' + this.pageSize;
+                const response = await apiGetAuthen(url);
                 response.data.map(e => {
                     e.createdDate = this.convertArrayDate2Date(e.createdDate)
                     e.updatedDate = this.convertArrayDate2Date(e.updatedDate)
@@ -262,6 +279,14 @@ export default {
         },
         getColor (isStatus) {
             return !isStatus ? 'red' : 'green';
+        },
+        async getCountPost() {
+            try {
+                this.totalItem = await apiPutAuthen(GET_COUNT_POST + '?isAdmin=true');
+                console.log(this.totalItem)
+            } catch (error) {
+                console.error(error);
+            }
         },
 
     },

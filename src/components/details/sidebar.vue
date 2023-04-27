@@ -20,7 +20,7 @@
 </template>
 <script>
 import axios from "axios";
-import {GET_LIST_TAG, GET_LIST_TAG_AND_COUNT} from "@/utils";
+import { GET_LIST_TAG_AND_COUNT} from "@/utils";
 
 export default {
     name: "SideBar",

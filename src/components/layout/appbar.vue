@@ -117,6 +117,10 @@ export default {
                 to: "/authors",
             },
             {
+                title: "Info2",
+                to: "/info",
+            },
+            {
                 title: "Đăng nhập",
                 to: "/login",
             },

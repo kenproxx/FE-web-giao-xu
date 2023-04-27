@@ -143,12 +143,12 @@
                                 <v-row >
                                     <v-col cols="6" style="display: flex" >
                                         <p class="text-subtitle-1 primary--text font-weight-medium" style="align-items: center; display: flex">
-                                            Vào ngày 23/4/2006, Đức cố giám mục Giuse Maria
+                                            Vào ngày 23/4/2006,
+                                            <br>Đức cố giám mục Giuse Maria
                                             Nguyễn Quang Tuyến đã dâng lễ khởi công và đặt viên đá
                                             góc xây dựng ngôi thánh đường mới. Sau 4 năm miệt mài chung
                                             sức với biết bao nhiêu những đóng góp hy sinh của giáo dân,
                                             cùng nhiều tấm lòng hảo tâm của quý ân nhân trong và ngoài nước.
-                                            <br>
                                             <br>
                                             Vào năm 2010 Đức Cha Cosma Hoàng Văn Đạt đã lên cắt băng khánh
                                             thành và làm phép ngôi Thánh Đường mới.

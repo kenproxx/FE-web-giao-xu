@@ -40,7 +40,11 @@
                                 :items-per-page.sync="pageSize"
                                 :page.sync="page"
                                 :server-items-length.sync="totalItem"
+                                :footer-props="configPagination"
                         >
+                            <template v-slot:item.id="{ index }">
+                                {{ index + 1 }}
+                            </template>
                             <template v-slot:item.title="{ item }">
                                 <div class="hidden-text">{{ item.title }}</div>
                             </template>
@@ -73,7 +77,9 @@
                                     </v-btn>
                                     <v-dialog v-model="dialogDelete" max-width="530px">
                                         <v-card>
-                                            <v-card-title class="text-h5">Bạn có muốn thay đổi trạng thái bài viết này?</v-card-title>
+                                            <v-card-title class="text-h5">Bạn có muốn thay đổi trạng thái bài viết
+                                                này?
+                                            </v-card-title>
                                             <v-card-actions>
                                                 <v-spacer></v-spacer>
                                                 <v-btn color="blue darken-1" text @click="closeDelete">Hủy</v-btn>
@@ -94,8 +100,8 @@
 
                             <template v-slot:item.status="{ item }">
                                 <v-chip
-                                    :color="getColor(item.status)"
-                                    dark
+                                        :color="getColor(item.status)"
+                                        dark
                                 >
                                     {{ textStatus(item.status) }}
                                 </v-chip>
@@ -141,7 +147,7 @@
 
 <script>
 import PostManager from "@/views/post-manager/CreatePost.vue";
-import {CHANGE_STATUS_POST, GET_ALL_POST, GET_COUNT_POST} from "@/utils";
+import {CHANGE_STATUS_POST, GET_ALL_POST} from "@/utils";
 import {apiGetAuthen, apiPutAuthen} from "@/utils/api";
 import ViewLog from "@/views/ViewLog.vue";
 
@@ -154,14 +160,20 @@ export default {
             dialogDelete: false,
             headerListPost: [
                 {
+                    text: 'STT',
+                    align: 'start',
+                    value: 'id',
+                    width: 100
+                },
+                {
                     text: 'Tiêu đề',
                     align: 'start',
                     value: 'title',
                 },
-                {text: 'Người tạo', value: 'createdBy', width: 120},
-                {text: 'Ngày tạo', value: 'createdDate', width: 120},
-                {text: 'Người cập nhật', value: 'updatedBy', width: 135},
-                {text: 'Ngày cập nhật', value: 'updatedDate', width: 135},
+                {text: 'Người tạo', value: 'created_by', width: 120},
+                {text: 'Ngày tạo', value: 'created_date', width: 120},
+                {text: 'Người cập nhật', value: 'updated_by', width: 135},
+                {text: 'Ngày cập nhật', value: 'updated_date', width: 135},
                 {text: 'Trạng thái', value: 'status', width: 140, align: 'center',},
                 {text: 'Thao tác', value: 'actions', sortable: false, width: 95, align: 'center',},
             ],
@@ -180,6 +192,11 @@ export default {
             },
             listPost: [],
             idCurrentRowNow: '',
+            configPagination: {
+                itemsPerPageOptions: [5, 10, 20, 50],
+                itemsPerPageText: 'Số dòng',
+                pageText: '$vuetify.dataFooter.pageText',
+            },
 
 
         }
@@ -202,11 +219,9 @@ export default {
     },
     created() {
         this.loading = true;
-        this.getCountPost();
         this.getAllPost();
     },
-    computed: {
-    },
+    computed: {},
 
     methods: {
 
@@ -242,24 +257,17 @@ export default {
             this.dialogDelete = false
         },
 
-        save() {
-            if (this.editedIndex > -1) {
-                Object.assign(this.desserts[this.editedIndex], this.editedItem)
-            } else {
-                this.desserts.push(this.editedItem)
-            }
-            this.close()
-        },
         async getAllPost() {
             try {
                 this.loading = true;
                 const url = GET_ALL_POST + '?page=' + this.page + '&pageSize=' + this.pageSize;
                 const response = await apiGetAuthen(url);
                 response.data.map(e => {
-                    e.createdDate = this.convertArrayDate2Date(e.createdDate)
-                    e.updatedDate = this.convertArrayDate2Date(e.updatedDate)
+                    e.created_date = this.convertArrayDate2Date(e.created_date)
+                    e.updated_date = this.convertArrayDate2Date(e.updated_date)
                 })
                 this.listPost = response.data;
+                this.totalItem = this.listPost[0].total_item;
             } catch (error) {
                 console.error(error);
             } finally {
@@ -267,7 +275,7 @@ export default {
             }
         },
         convertArrayDate2Date(dateArray) {
-            if (dateArray !== null) {
+            if (dateArray != null || dateArray != undefined) {
                 const dateObj = new Date(...dateArray);
                 return dateObj.toLocaleDateString('en-GB');
             }
@@ -277,18 +285,9 @@ export default {
         textStatus(status) {
             return status ? "Đang được hiện" : "Đang bị ẩn";
         },
-        getColor (isStatus) {
+        getColor(isStatus) {
             return !isStatus ? 'red' : 'green';
         },
-        async getCountPost() {
-            try {
-                this.totalItem = await apiPutAuthen(GET_COUNT_POST + '?isAdmin=true');
-                console.log(this.totalItem)
-            } catch (error) {
-                console.error(error);
-            }
-        },
-
     },
 }
 </script>

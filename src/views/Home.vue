@@ -100,7 +100,7 @@
 
                 </div>
                 <div class="mt-5 mb-5">
-                    <v-pagination :length="6" v-model="page"></v-pagination>
+                    <v-pagination :length="totalPage" v-model="page"></v-pagination>
                 </div>
 
             </v-col>
@@ -130,6 +130,7 @@ export default {
             postNewest: {},
             listPost: [],
             page: 0,
+            totalPage: 0,
             loading: false,
 
 
@@ -168,6 +169,7 @@ export default {
             try {
                 const response = await axios.get(FIND_ALL + "?page=" + page);
                 this.listPost = response.data;
+                this.totalPage = this.listPost[0].total_page + 1;
             } catch (error) {
                 console.error(error);
             } finally {

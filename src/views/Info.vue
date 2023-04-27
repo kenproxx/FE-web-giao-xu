@@ -32,90 +32,136 @@
 
                                 <v-divider class="my-4"></v-divider>
 
-                                <div>
-                                    <p class="text-subtitle-1 primary--text font-weight-medium">
-                                        Đến khoảng năm 1920, có một vị linh mục vì muốn quy tụ
-                                        những con chiên đang tản mác, sống rải rác trên khu vực Đại Từ lại,
-                                        muốn lo cho họ có ruộng đất để làm việc, ngài đã mua hai
-                                        khu cánh đồng, một là khu cánh đồng Yên Thuận hai là khu
-                                        cánh đồng Huy Ngạc rồi lập nên một họ đạo mang tên Yên Huy.
-                                        Lúc đó số giáo dân chỉ chừng 30 hộ với khoảng 120 nhân danh.
-                                        Để những người giáo dân có nơi cầu nguyện ngài đã dành ra một
-                                        khu đất với diện tích chừng hơn 13.460 m2 để làm nơi thờ tự.
-                                        Sau đó, Đức cha Teodoro Gordaliza Phúc (1925-1931)
-                                        chính thức thiết lập Giáo xứ Yên Huy.
-
-                                    </p>
-                                </div>
+                                <v-row >
+                                    <v-col cols="6" style="display: flex" >
+                                        <p class="text-subtitle-1 primary--text font-weight-medium" style="align-items: center; display: flex">
+                                            Đến khoảng năm 1920, có một vị linh mục vì muốn quy tụ
+                                            những con chiên đang tản mác, sống rải rác trên khu vực Đại Từ lại,
+                                            muốn lo cho họ có ruộng đất để làm việc, ngài đã mua hai
+                                            khu cánh đồng, một là khu cánh đồng Yên Thuận hai là khu
+                                            cánh đồng Huy Ngạc rồi lập nên một họ đạo mang tên Yên Huy.
+                                            Lúc đó số giáo dân chỉ chừng 30 hộ với khoảng 120 nhân danh.
+                                            Để những người giáo dân có nơi cầu nguyện ngài đã dành ra một
+                                            khu đất với diện tích chừng hơn 13.460 m2 để làm nơi thờ tự.
+                                            Sau đó, Đức cha Teodoro Gordaliza Phúc (1925-1931)
+                                            chính thức thiết lập Giáo xứ Yên Huy.
+                                        </p>
+                                    </v-col>
+                                    <v-col cols="6">
+                                        <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
+                                    </v-col>
+                                </v-row>
 
                                 <div class="text-h5 primary--text font-weight-bold">
                                     Lược sử họ Nhà xứ qua các đời Cha.
-                                    <p class="text-subtitle-1 primary--text font-weight-medium mt-5">
-                                        Trước năm 1941 Cha Bắc quản xứ, ngài đã xây dựng được
-                                        4 gian nhà nguyện nhỏ bằng tranh tre, nứa, lá, một trường học và nhà rương thóc.
-                                        Đến khoảng năm 1941, ngôi nhà thờ bằng gỗ khá kiên cố
-                                        đầu tiên được dựng nên với chiều dài chừng 7 gian.
-                                        <br>
-                                        <br>
-                                        Năm 1942 Cha Xuân về quản xứ, Ngài đã chuẩn bị vật liệu
-                                        để xây dựng nhà thờ mới nhưng vì điều kiện đất nước chiến tranh
-                                        nên không thể thực hiện được và cha Xuân cũng chuyển đi nơi khác.
-                                        <br>
-                                        <br>
-                                        Năm 1945 - 1947 cha Ngọc về quản xứ trong hoàn cảnh chiến tranh
-                                        lên tới đỉnh điểm. Với khẩu hiệu vườn không nhà trống,
-                                        trong một đợt chạy giặc, tất cả giáo dân phải chạy vào
-                                        khu rừng Đồng Khuân và dựng trại lán tạm để nương náu,
-                                        còn nhà cửa ở trong làng thì đều bị đốt hoặc dỡ bỏ,
-                                        trừ những công trình trong khuôn viên nhà thờ.
-                                        Một thời gian sau, khi địch đã rút quân, những người giáo
-                                        dân quay về làng để trở lại cuộc sống thường nhật thì
-                                        thấy những công trình trong nhà xứ tuy có bị hư hại nhưng
-                                        không bị những tổn thất quá nặng nề. Đặc biệt, ngôi nhà thờ
-                                        thì vẫn còn nguyên và gần như không bị hư hại gì.
-                                        <br>
-                                        <br>
-                                        Năm 1947 - 1950 Cha Phước về quản xứ.
-                                        Ngài là một linh mục dòng người Tây Ban Nha.
-                                        <br>
-                                        <br>
-                                        Từ năm 1950 - 1953 Cha Khoa chuyển
-                                        từ Yên Lãng về coi sóc Giáo xứ. Sau đó,
-                                        ngay trước công cuộc cải cách ruộng đất,
-                                        được cha Phạm Bá Trực báo tin là nếu cha còn
-                                        ở lại thì sẽ gặp rất nhiều khó khăn, và có khi
-                                        còn nguy hiểm đến tính mạng. Vì thế, Cha Khoa đã âm
-                                        thầm rời khỏi giáo xứ.
-                                        <br>
-                                        <br>
-                                    </p>
-                                    <div >
-                                        <p class="text-subtitle-1 primary--text font-weight-medium mt-5">
-                                            Đến cuối năm 1994 - 1998 Cha Đaminh Nguyễn Văn Kinh về quản nhiệm.
+                                </div>
+                                <v-row >
+                                    <v-col cols="6" style="display: flex" >
+                                        <p class="text-subtitle-1 primary--text font-weight-medium" style="align-items: center; display: flex">
+                                            Trước năm 1941 Cha Bắc quản xứ, ngài đã xây dựng được
+                                            4 gian nhà nguyện nhỏ bằng tranh tre, nứa, lá, một trường học và nhà rương thóc.
+                                            Đến khoảng năm 1941, ngôi nhà thờ bằng gỗ khá kiên cố
+                                            đầu tiên được dựng nên với chiều dài chừng 7 gian.
+                                            <br>
+                                            <br>
+                                            Năm 1942 Cha Xuân về quản xứ, Ngài đã chuẩn bị vật liệu
+                                            để xây dựng nhà thờ mới nhưng vì điều kiện đất nước chiến tranh
+                                            nên không thể thực hiện được và cha Xuân cũng chuyển đi nơi khác.
+                                            <br>
+                                            <br>
+                                            Năm 1945 - 1947 cha Ngọc về quản xứ trong hoàn cảnh chiến tranh
+                                            lên tới đỉnh điểm. Với khẩu hiệu vườn không nhà trống,
+                                            trong một đợt chạy giặc, tất cả giáo dân phải chạy vào
+                                            khu rừng Đồng Khuân và dựng trại lán tạm để nương náu,
+                                            còn nhà cửa ở trong làng thì đều bị đốt hoặc dỡ bỏ,
+                                            trừ những công trình trong khuôn viên nhà thờ.
+                                            Một thời gian sau, khi địch đã rút quân, những người giáo
+                                            dân quay về làng để trở lại cuộc sống thường nhật thì
+                                            thấy những công trình trong nhà xứ tuy có bị hư hại nhưng
+                                            không bị những tổn thất quá nặng nề. Đặc biệt, ngôi nhà thờ
+                                            thì vẫn còn nguyên và gần như không bị hư hại gì.
+                                            <br>
+                                            <br>
+
                                         </p>
-                                    </div>
+                                    </v-col>
+                                    <v-col cols="6">
+                                        <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
+                                    </v-col>
+                                </v-row>
+
+                                <v-row >
+                                    <v-col cols="6" style="display: flex" >
+                                        <p class="text-subtitle-1 primary--text font-weight-medium" style="align-items: center; display: flex">
+                                            Năm 1947 - 1950 Cha Phước về quản xứ.
+                                            Ngài là một linh mục dòng người Tây Ban Nha.
+                                            <br>
+                                            <br>
+                                            Từ năm 1950 - 1953 Cha Khoa chuyển
+                                            từ Yên Lãng về coi sóc Giáo xứ. Sau đó,
+                                            ngay trước công cuộc cải cách ruộng đất,
+                                            được cha Phạm Bá Trực báo tin là nếu cha còn
+                                            ở lại thì sẽ gặp rất nhiều khó khăn, và có khi
+                                            còn nguy hiểm đến tính mạng. Vì thế, Cha Khoa đã âm
+                                            thầm rời khỏi giáo xứ.
+                                            <br>
+                                            <br>
+                                        </p>
+                                    </v-col>
+                                    <v-col cols="6">
+                                        <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
+                                    </v-col>
+                                </v-row>
+
+                                <v-row >
+                                    <v-col cols="6" style="display: flex" >
+                                        <p class="text-subtitle-1 primary--text font-weight-medium" style="align-items: center; display: flex">
+                                            Đến cuối năm 1994 - 1998 Cha Đaminh Nguyễn Văn Kinh về quản nhiệm.
+                                            <br>
+                                            <br>
+                                            Từ năm 1998 - 2005 cha quê hương Giuse Nguyễn Văn Khiêm quản nhiệm.
+                                            <br>
+                                            <br>
+                                            Ngày 10/09/2005, Đức cha cố Giuse Maria Nguyễn Quang Tuyến
+                                            bổ nhiệm Cha Giuse Nguyễn Văn Phong làm linh mục chánh xứ
+                                            sau hơn 50 năm giáo xứ không có linh mục ở trực tiếp.
+                                        </p>
+                                    </v-col>
+                                    <v-col cols="6">
+                                        <v-row>
+                                            <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="33%" alt="">
+                                            <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="33%" alt="">
+
+                                        </v-row>
+                                        <v-row>
+                                        </v-row>
+                                        <v-row>
+                                            <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="33%" alt="">
+                                        </v-row>
+                                    </v-col>
+                                </v-row>
+                                <v-row >
+                                    <v-col cols="6" style="display: flex" >
+                                        <p class="text-subtitle-1 primary--text font-weight-medium" style="align-items: center; display: flex">
+                                            Vào ngày 23/4/2006, Đức cố giám mục Giuse Maria
+                                            Nguyễn Quang Tuyến đã dâng lễ khởi công và đặt viên đá
+                                            góc xây dựng ngôi thánh đường mới. Sau 4 năm miệt mài chung
+                                            sức với biết bao nhiêu những đóng góp hy sinh của giáo dân,
+                                            cùng nhiều tấm lòng hảo tâm của quý ân nhân trong và ngoài nước.
+                                            <br>
+                                            <br>
+                                            Vào năm 2010 Đức Cha Cosma Hoàng Văn Đạt đã lên cắt băng khánh
+                                            thành và làm phép ngôi Thánh Đường mới.
+                                        </p>
+                                    </v-col>
+                                    <v-col cols="6">
+                                        <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
+                                    </v-col>
+                                </v-row>
+
+                                <div class="text-h5 primary--text font-weight-bold">
                                     <p class="text-subtitle-1 primary--text font-weight-medium mt-5">
-                                        <br>
-                                        <br>
-                                        Từ năm 1998 - 2005 cha quê hương Giuse Nguyễn Vãn Khiêm quản nhiệm.
-                                        <br>
-                                        <br>
-                                        Ngày 10/09/2005, Đức cha cố Giuse Maria Nguyễn Quang Tuyến
-                                        bổ nhiệm Cha Giuse Nguyễn Văn Phong làm linh mục chánh xứ
-                                        sau hơn 50 năm giáo xứ không có linh mục ở trực tiếp.
-                                        <br>
-                                        <br>
-                                        Vào ngày 23/4/2006, Đức cố giám mục Giuse Maria
-                                        Nguyễn Quang Tuyến đã dâng lễ khởi công và đặt viên đá
-                                        góc xây dựng ngôi thánh đường mới. Sau 4 năm miệt mài chung
-                                        sức với biết bao nhiêu những đóng góp hy sinh của giáo dân,
-                                        cùng nhiều tấm lòng hảo tâm của quý ân nhân trong và ngoài nước.
-                                        <br>
-                                        <br>
-                                        Vào năm 2010 Đức Cha Cosma Hoàng Văn Đạt đã lên cắt băng khánh
-                                        thành và làm phép ngôi Thánh Đường mới.
-                                        <br>
-                                        <br>
+
                                         Từ 2010 – 2019 Cha Phê-rô Mai Viết Thắng chính xứ
                                         <br>
                                         <br>

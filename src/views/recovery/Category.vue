@@ -78,12 +78,12 @@
 
 <script>
 import axios from "axios";
-import {GET_LIST_POST_BY_TAG, NEWEST_POST} from "@/utils";
+import {GET_LIST_POST_BY_TAG, NEWEST_POST} from "@/utils/index.ts";
 
 export default {
   name: "Category",
   components: {
-    siderbar: () => import("@/components/details/sidebar"),
+    siderbar: () => import("@/components/details/sidebar.vue"),
   },
     data() {
       return{

@@ -22,11 +22,11 @@
                     </div>
                 </div>
             </div>
-
             <img
-                    class="absolute top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12 max-h-860-px"
-                    :src="patternVue"
+                    class="absolute top-0  right-0  sm:w-6/12 -mt-48 sm:mt-0 w-15/12 max-w-860-px"
+                    :src="anh_4"
                     alt="..."
+                    style="width: 500px; border-end-start-radius: 50%; border-top-right-radius: 25%"
             />
         </section>
 
@@ -36,7 +36,7 @@
                     <img
                             alt="..."
                             class="max-w-full rounded-lg shadow-lg"
-                            src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                            :src="anh_5"
                     />
                 </div>
                 <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
@@ -70,7 +70,7 @@
                         >
                             <img
                                     alt="..."
-                                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
+                                    :src="anh_23"
                                     class="w-full align-middle rounded-t-lg"
                             />
                             <blockquote class="relative p-8 mb-4">
@@ -89,7 +89,7 @@
                                     Trước năm 1941 Cha Bắc quản xứ
                                 </h4>
                                 <p class="text-md font-light mt-2 text-white">
-                                    ngài đã xây dựng được
+                                    Ngài đã xây dựng được
                                     4 gian nhà nguyện nhỏ bằng tranh tre, nứa, lá, một trường học và nhà rương thóc.
                                     Đến khoảng năm 1941, ngôi nhà thờ bằng gỗ khá kiên cố
                                     đầu tiên được dựng nên với chiều dài chừng 7 gian.
@@ -238,6 +238,8 @@
                                     JavaScript
                                 </p>
                             </div>
+
+
                         </div>
                         <div class="my-4 w-full lg:w-6/12 px-4 lg:mt-16">
                             <div class="bg-blue-600 rounded-full text-center overflow-hidden w-64 h-64 flex items-center justify-center">
@@ -388,7 +390,6 @@
 
         <div class="justify-center text-center flex flex-wrap mt-24">
             <div class="w-full md:w-6/12 px-12 md:px-4">
-                <h2 class="font-semibold text-4xl">Beautiful Example Pages</h2>
                 <p class="text-lg leading-relaxed mt-4 mb-4 text-blueGray-500">
                     Từ 2010 – 2019, Cha Phê-rô Mai Viết Thắng chính xứ
                     <br>
@@ -400,7 +401,7 @@
         </div>
 
 
-        <section class=" mt-24 block relative z-1 bg-blueGray-600">
+        <section class=" mt-24 block relative z-1 ">
             <div class="container mx-auto">
                 <div class="justify-center flex flex-wrap">
                     <div class="w-full lg:w-12/12 px-4 -mt-24">
@@ -415,7 +416,7 @@
                                     <img
                                             alt="..."
                                             class="align-middle border-none max-w-full h-auto rounded-lg"
-                                            :src="login"
+                                            :src="cha_thang"
                                     />
                                 </div>
                             </div>
@@ -455,75 +456,20 @@
             </div>
         </section>
 
+
+
         <section class="mt-48 md:mt-40 pb-40 relative">
             <div class="container mx-auto px-4 pb-32 pt-48">
                 <div class="items-center flex flex-wrap">
                     <div class="w-full md:w-5/12 ml-auto px-12 md:px-4">
                         <div class="md:pr-12">
-                            <div
-                                    class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white"
-                            >
-                                <i class="fas fa-file-alt text-xl"></i>
-                            </div>
                             <h3 class="text-3xl font-semibold">
-                                Complex Documentation
+                                Đến nay,
                             </h3>
                             <p class="mt-4 text-lg leading-relaxed text-blueGray-500">
-                                This extension comes a lot of fully coded examples that help you
-                                get started faster. You can adjust the colors and also the
-                                programming language. You can change the text and images and
-                                you're good to go.
+                                Giáo xứ đã có 200 hộ với hơn 5000 nhân danh, sinh sống trải dài trên các xã hùng sơn,
+                                yên thuận, sơn hà
                             </p>
-                            <ul class="list-none mt-6">
-                                <li class="py-2">
-                                    <div class="flex items-center">
-                                        <div>
-                      <span
-                              class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3"
-                      >
-                        <i class="fas fa-fingerprint"></i>
-                      </span>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-blueGray-500">
-                                                Built by Developers for Developers
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="flex items-center">
-                                        <div>
-                      <span
-                              class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3"
-                      >
-                        <i class="fab fa-html5"></i>
-                      </span>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-blueGray-500">
-                                                Carefully crafted code for Components
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="flex items-center">
-                                        <div>
-                      <span
-                              class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3"
-                      >
-                        <i class="far fa-paper-plane"></i>
-                      </span>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-blueGray-500">
-                                                Dynamic Javascript Components
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
                     </div>
 
@@ -535,7 +481,7 @@
                 transform: scale(1) perspective(1040px) rotateY(-11deg)
                   rotateX(2deg) rotate(2deg);
               "
-                                :src="documentation"
+                                :src="anh_21"
                         />
                     </div>
                 </div>
@@ -755,6 +701,8 @@ import anh_19 from "@/assets/img-info/anh_19.jpg";
 import anh_20 from "@/assets/img-info/anh_20.jpg";
 import anh_21 from "@/assets/img-info/anh_21.jpg";
 import anh_22 from "@/assets/img-info/anh_22.jpg";
+import anh_23 from "@/assets/img-info/anh_23.jpg";
+import cha_thang from "@/assets/img-info/cha_thang.jpg";
 
 
 export default {
@@ -777,16 +725,22 @@ export default {
             team4,
             slides: [
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+                    src: anh_1,
                 },
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+                    src: anh_3,
                 },
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+                    src: anh_9,
                 },
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+                    src: anh_11,
+                },
+                {
+                    src: anh_20,
+                },
+                {
+                    src: anh_22,
                 },
             ],
             anh_1,
@@ -811,6 +765,8 @@ export default {
             anh_20,
             anh_21,
             anh_22,
+            anh_23,
+            cha_thang,
 
         };
     },

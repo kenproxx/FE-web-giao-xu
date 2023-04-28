@@ -11,24 +11,14 @@ const routes = [
         component: Home
     },
     {
-        path: '/phan-loai/:id',
-        name: 'Category',
-        component: () => import("@/views/Category.vue"),
-    },
-    {
         path: '/chi-tiet/:id',
         name: 'Detail',
         component: () => import("@/views/Detail.vue"),
     },
     {
-        path: '/authors',
-        name: 'Authors',
-        component: () => import("@/views/Info.vue"),
-    },
-    {
         path: '/info',
         name: 'Info',
-        component: () => import("@/views/Info2.vue"),
+        component: () => import("@/views/InfoPage.vue"),
     },
     {
         path: '/login',
@@ -39,11 +29,6 @@ const routes = [
         path: '/manager',
         name: 'Mangager',
         component: () => import("@/views/Manager.vue"),
-    },
-    {
-        path: '/editor',
-        name: 'Editor',
-        component: () => import("@/views/Editor.vue"),
     },
     {
         path: '/create-post',

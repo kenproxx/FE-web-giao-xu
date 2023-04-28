@@ -48,7 +48,7 @@
                                         </p>
                                     </v-col>
                                     <v-col cols="6">
-                                        <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
+                                        <img src="../../images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
                                     </v-col>
                                 </v-row>
 
@@ -86,7 +86,7 @@
                                         </p>
                                     </v-col>
                                     <v-col cols="6">
-                                        <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
+                                        <img src="../../images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
                                     </v-col>
                                 </v-row>
 
@@ -109,7 +109,7 @@
                                         </p>
                                     </v-col>
                                     <v-col cols="6">
-                                        <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
+                                        <img src="../../images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
                                     </v-col>
                                 </v-row>
 
@@ -129,14 +129,14 @@
                                     </v-col>
                                     <v-col cols="6">
                                         <v-row>
-                                            <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="33%" alt="">
-                                            <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="33%" alt="">
+                                            <img src="../../images/anh-nha-tho/anh_nha_tho_1.jpg" width="33%" alt="">
+                                            <img src="../../images/anh-nha-tho/anh_nha_tho_1.jpg" width="33%" alt="">
 
                                         </v-row>
                                         <v-row>
                                         </v-row>
                                         <v-row>
-                                            <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="33%" alt="">
+                                            <img src="../../images/anh-nha-tho/anh_nha_tho_1.jpg" width="33%" alt="">
                                         </v-row>
                                     </v-col>
                                 </v-row>
@@ -155,7 +155,7 @@
                                         </p>
                                     </v-col>
                                     <v-col cols="6">
-                                        <img src="@/images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
+                                        <img src="../../images/anh-nha-tho/anh_nha_tho_1.jpg" width="100%" alt="">
                                     </v-col>
                                 </v-row>
 
@@ -303,7 +303,7 @@
 export default {
     name: "Category",
     components: {
-        siderbar: () => import("@/components/details/sidebar"),
+        siderbar: () => import("@/components/details/sidebar.vue"),
     },
 };
 </script>

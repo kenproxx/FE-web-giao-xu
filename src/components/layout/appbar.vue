@@ -74,16 +74,26 @@
                                 exact
                                 exact-active-class="accent--text"
                                 text
+                                :disabled="item.disable"
                         > {{ item.title }}
                         </v-btn>
                         <v-btn
-                            v-if="!hiddenManager()"
+                            v-if="!hiddenManager"
                                 to="/manager"
                                 class="text-capitalize"
                                 exact
                                 exact-active-class="accent--text"
                                 text
                         > Quản lý
+                        </v-btn>
+                        <v-btn
+                            v-if="!hiddenManager"
+                                class="text-capitalize"
+                                exact
+                                exact-active-class="accent--text"
+                                text
+                            @click="logout"
+                        >Đăng xuất
                         </v-btn>
                     </v-col>
 
@@ -103,36 +113,30 @@ export default {
             {
                 title: "Trang chủ",
                 to: "/",
-            },
-            {
-                title: "Danh mục",
-                to: "/category",
+                disable: false
+
             },
             {
                 title: "Chi tiết",
                 to: "/detail",
+                disable: true
             },
             {
                 title: "Về Giáo xứ",
-                to: "/authors",
-            },
-            {
-                title: "Info2",
                 to: "/info",
-            },
-            {
-                title: "Đăng nhập",
-                to: "/login",
+                disable: false
             },
         ],
     }),
-    methods: {
+    computed: {
         hiddenManager() {
             const token = sessionStorage.getItem('access_token');
-            if (token) {
-                this.hidden = false;
-            }
-            return this.hidden;
+            return !token; // Nếu không có token thì giá trị của hidden là true
+        }
+    },
+    methods: {
+        logout() {
+            sessionStorage.clear();
         },
     }
 };

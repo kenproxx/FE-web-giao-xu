@@ -43,13 +43,13 @@ export default {
                     text: 'STT',
                     align: 'start',
                     value: 'id',
-                    width: 100
+                    width: 100,
                 },
                 {
                     text: 'Nội dung',
                     value: 'value',
                 },
-                {text: 'Người thao tác', value: 'createdBy', width: 120},
+                {text: 'Người thao tác', value: 'createdBy', width: 140},
                 {text: 'Giờ thao tác', value: 'createdDate', width: 120},
             ],
             configPagination: {

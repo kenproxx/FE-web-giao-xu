@@ -33,7 +33,7 @@
                                 </v-avatar>
 
                                 <div class="text-h6 pl-2">{{ postNewest.createdBy }} ·
-                                    {{ convertDate(postNewest.createdDate) }}
+                                    {{ postNewest.createdDate }}
                                 </div>
                             </v-col>
                         </v-row>
@@ -86,8 +86,8 @@
                                                         <v-icon dark>mdi-feather</v-icon>
                                                     </v-avatar>
 
-                                                    <div class="pl-2">{{ item.createdBy }} ·
-                                                        {{ convertDate(item.createdDate) }}
+                                                    <div class="pl-2">{{ item.created_by }} ·
+                                                        {{ item.created_date }}
                                                     </div>
                                                 </div>
                                             </v-card-text>
@@ -154,22 +154,27 @@ export default {
                 const response = await axios.get(NEWEST_POST);
                 this.postNewest = response.data;
                 const createdDate = this.postNewest.createdDate;
-                this.postNewest.createdDate = this.convertDate(createdDate)
+                this.postNewest.createdDate = this.convertArrayDate2Date(createdDate)
             } catch (error) {
                 console.error(error);
             }
         },
-        convertDate(dateString) {
-            let date = new Date(dateString);
-            let formattedDate = date.toLocaleDateString('en-GB');
-            let formattedTime = date.toLocaleTimeString('en-GB');
-            return `${formattedDate} - ${formattedTime}`
+
+        convertArrayDate2Date(dateArray) {
+            if (dateArray != null || dateArray != undefined) {
+                const dateObj = new Date(...dateArray);
+                return dateObj.toLocaleDateString('en-GB');
+            }
+            return null;
         },
         async findAllPost(page = 1) {
             try {
                 const response = await axios.get(FIND_ALL + "?page=" + page);
                 this.listPost = response.data;
                 this.totalPage = this.listPost[0].total_page + 1;
+                this.listPost.map(e => {
+                    e.created_date = this.convertArrayDate2Date(e.created_date)
+                })
             } catch (error) {
                 console.error(error);
             } finally {

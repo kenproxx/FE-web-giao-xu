@@ -212,27 +212,27 @@
                     <div class="justify-center flex flex-wrap relative">
                         <div class="my-4 w-full lg:w-6/12 px-4">
 
-                                <div class="bg-600  rounded-lg text-center   ">
-                                    <img
-                                            alt="..."
-                                            class="shadow-md rounded-full max-w-full  mx-auto p-2 bg-white"
-                                            src="@/assets/img/ill_header.png"
-                                    />
-                                </div>
-                                <div class="bg-600  rounded-lg text-center   ">
-                                    <img
-                                            alt="..."
-                                            class="shadow-md rounded-full max-w-full  mx-auto p-2 bg-white"
-                                            src="@/assets/img/ill_header.png"
-                                    />
-                                </div>
+                            <div class="bg-600  rounded-lg text-center   ">
+                                <img
+                                        alt="..."
+                                        class="shadow-md rounded-full max-w-full  mx-auto p-2 bg-white"
+                                        src="@/assets/img/ill_header.png"
+                                />
+                            </div>
+                            <div class="bg-600  rounded-lg text-center   ">
+                                <img
+                                        alt="..."
+                                        class="shadow-md rounded-full max-w-full  mx-auto p-2 bg-white"
+                                        src="@/assets/img/ill_header.png"
+                                />
+                            </div>
                             <div
-                                class="bg-yellow-500 shadow-lg rounded-lg text-center p-8"
+                                    class="bg-yellow-500 shadow-lg rounded-lg text-center p-8"
                             >
                                 <img
-                                    alt="..."
-                                    class="shadow-md aspect-square max-w-full w-16 mx-auto p-2 bg-white"
-                                    src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png"
+                                        alt="..."
+                                        class="shadow-md aspect-square max-w-full w-16 mx-auto p-2 bg-white"
+                                        src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png"
                                 />
                                 <p class="text-lg text-white mt-4 font-semibold">
                                     JavaScript
@@ -242,28 +242,28 @@
                         <div class="my-4 w-full lg:w-6/12 px-4 lg:mt-16">
                             <div class="bg-blue-600 rounded-full text-center overflow-hidden w-64 h-64 flex items-center justify-center">
                                 <img
-                                    alt="..."
-                                    class="w-full"
-                                    style="clip-path: polygon(50% 0%, 85% 18%, 100% 50%, 85% 82%, 50% 100%, 15% 82%, 0% 50%, 15% 18%);"
-                                    src="@/assets/img/ill_header.png"
+                                        alt="..."
+                                        class="w-full"
+                                        style="clip-path: polygon(50% 0%, 85% 18%, 100% 50%, 85% 82%, 50% 100%, 15% 82%, 0% 50%, 15% 18%);"
+                                        src="@/assets/img/ill_header.png"
                                 />
                             </div>
 
 
                             <div class="bg-600  rounded-lg text-center   ">
                                 <img
-                                    alt="..."
-                                    style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"
-                                    src="@/assets/img/ill_header.png"
+                                        alt="..."
+                                        style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"
+                                        src="@/assets/img/ill_header.png"
                                 />
                             </div>
                             <div
-                                class="bg-yellow-500 shadow-lg rounded-lg text-center p-8"
+                                    class="bg-yellow-500 shadow-lg rounded-lg text-center p-8"
                             >
                                 <img
-                                    alt="..."
-                                    style="clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"
-                                    src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png"
+                                        alt="..."
+                                        style="clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"
+                                        src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png"
                                 />
                                 <p class="text-lg text-white mt-4 font-semibold">
                                     JavaScript
@@ -733,6 +733,30 @@ import team2 from "@/assets/img/team-2-800x800.jpg";
 import team3 from "@/assets/img/team-3-800x800.jpg";
 import team4 from "@/assets/img/team-4-470x470.png";
 
+import anh_1 from "@/assets/img-info/anh_1.jpg";
+import anh_2 from "@/assets/img-info/anh_2.jpg";
+import anh_3 from "@/assets/img-info/anh_3.jpg";
+import anh_4 from "@/assets/img-info/anh_4.jpg";
+import anh_5 from "@/assets/img-info/anh_5.jpg";
+import anh_6 from "@/assets/img-info/anh_6.jpg";
+import anh_7 from "@/assets/img-info/anh_7.jpg";
+import anh_8 from "@/assets/img-info/anh_8.jpg";
+import anh_9 from "@/assets/img-info/anh_9.jpg";
+import anh_10 from "@/assets/img-info/anh_10.jpg";
+import anh_11 from "@/assets/img-info/anh_11.jpg";
+import anh_12 from "@/assets/img-info/anh_12.jpg";
+import anh_13 from "@/assets/img-info/anh_13.jpg";
+import anh_14 from "@/assets/img-info/anh_14.jpg";
+import anh_15 from "@/assets/img-info/anh_15.jpg";
+import anh_16 from "@/assets/img-info/anh_16.jpg";
+import anh_17 from "@/assets/img-info/anh_17.jpg";
+import anh_18 from "@/assets/img-info/anh_18.jpg";
+import anh_19 from "@/assets/img-info/anh_19.jpg";
+import anh_20 from "@/assets/img-info/anh_20.jpg";
+import anh_21 from "@/assets/img-info/anh_21.jpg";
+import anh_22 from "@/assets/img-info/anh_22.jpg";
+
+
 export default {
     data() {
         return {
@@ -765,6 +789,28 @@ export default {
                     src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
                 },
             ],
+            anh_1,
+            anh_2,
+            anh_3,
+            anh_4,
+            anh_5,
+            anh_6,
+            anh_7,
+            anh_8,
+            anh_9,
+            anh_10,
+            anh_11,
+            anh_12,
+            anh_13,
+            anh_14,
+            anh_15,
+            anh_16,
+            anh_17,
+            anh_18,
+            anh_19,
+            anh_20,
+            anh_21,
+            anh_22,
 
         };
     },

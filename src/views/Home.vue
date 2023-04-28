@@ -164,8 +164,10 @@ export default {
 
         convertArrayDate2Date(dateArray) {
             if (dateArray != null || dateArray != undefined) {
-                const dateObj = new Date(...dateArray);
-                return dateObj.toLocaleDateString('en-GB');
+                const day = dateArray[2].toString().padStart(2, '0');
+                const month = dateArray[1].toString().padStart(2, '0');
+                const year = dateArray[0].toString();
+                return `${day}/${month}/${year}`;
             }
             return null;
         },

@@ -75,7 +75,7 @@
                                     >
                                         Tạo mới
                                     </v-btn>
-                                    <v-dialog v-model="dialogDelete" max-width="530px">
+                                    <v-dialog v-model="dialogDelete" width="550">
                                         <v-card>
                                             <v-card-title class="text-h5">Bạn có muốn thay đổi trạng thái bài viết
                                                 này?
@@ -262,11 +262,13 @@ export default {
                 this.loading = true;
                 const url = GET_ALL_POST + '?page=' + this.page + '&pageSize=' + this.pageSize;
                 const response = await apiGetAuthen(url);
-                response.data.map(e => {
-                    e.created_date = this.convertArrayDate2Date(e.created_date)
-                    e.updated_date = this.convertArrayDate2Date(e.updated_date)
-                })
                 this.listPost = response.data;
+                this.listPost.map(e => {
+                        e.created_date = this.convertArrayDate2Date(e.created_date);
+                        e.updated_date = this.convertArrayDate2Date(e.updated_date)
+                    }
+                )
+
                 this.totalItem = this.listPost[0].total_item;
             } catch (error) {
                 console.error(error);
@@ -276,8 +278,10 @@ export default {
         },
         convertArrayDate2Date(dateArray) {
             if (dateArray != null || dateArray != undefined) {
-                const dateObj = new Date(...dateArray);
-                return dateObj.toLocaleDateString('en-GB');
+                const day = dateArray[2].toString().padStart(2, '0');
+                const month = dateArray[1].toString().padStart(2, '0');
+                const year = dateArray[0].toString();
+                return `${day}/${month}/${year}`;
             }
             return null;
         },

@@ -49,8 +49,8 @@ export default {
                     text: 'Nội dung',
                     value: 'value',
                 },
-                {text: 'Người tạo', value: 'createdBy', width: 120},
-                {text: 'Ngày tạo', value: 'createdDate', width: 120},
+                {text: 'Người thao tác', value: 'createdBy', width: 120},
+                {text: 'Giờ thao tác', value: 'createdDate', width: 120},
             ],
             configPagination: {
                 itemsPerPageOptions: [5, 10, 20, 50],
@@ -90,7 +90,6 @@ export default {
                     e.createdDate = this.convertArrayDate2Date(e.createdDate)
                 })
                 this.totalItem = response.data.totalElements;
-                console.log(response.data)
             } catch (error) {
                 console.error(error);
             } finally {
@@ -98,9 +97,16 @@ export default {
             }
         },
         convertArrayDate2Date(dateArray) {
-            if (dateArray !== null) {
-                const dateObj = new Date(...dateArray);
-                return dateObj.toLocaleDateString('en-GB');
+            if (dateArray != null || dateArray != undefined) {
+                const day = dateArray[2].toString().padStart(2, '0');
+                const month = dateArray[1].toString().padStart(2, '0');
+                const year = dateArray[0].toString();
+
+                const hours = dateArray[3].toString().padStart(2, '0');
+                const minutes = dateArray[4].toString().padStart(2, '0');
+                const seconds = dateArray[5].toString().padStart(2, '0');
+
+                return `${hours}:${minutes}:${seconds} ${day}/${month}/${year}`;
             }
             return null;
         },

@@ -62,13 +62,14 @@
                                                 flat
                                                 hover
                                                 :to="{ name: 'Detail', params: { id: item.id } }"
+                                                height="520"
                                         >
                                             <v-img
                                                     :aspect-ratio="16 / 9"
                                                     class="elevation-2"
                                                     gradient="to top, rgba(25,32,72,.4), rgba(25,32,72,.0)"
                                                     height="200px"
-                                                    :src="item.thumbnailImg"
+                                                    :src="item.thumbnail_img"
                                                     style="border-radius: 16px"
                                                     :cover="true"
                                             >
@@ -129,7 +130,7 @@ export default {
         return {
             postNewest: {},
             listPost: [],
-            page: 0,
+            page: 1,
             totalPage: 0,
             loading: false,
 
@@ -144,6 +145,7 @@ export default {
     },
     watch: {
         page() {
+            this.loading = true;
             this.findAllPost(this.page)
             this.scrollToSection("hot-post")
         },
@@ -171,7 +173,7 @@ export default {
             try {
                 const response = await axios.get(FIND_ALL + "?page=" + page);
                 this.listPost = response.data;
-                this.totalPage = this.listPost[0].total_page + 1;
+                this.totalPage = this.listPost[0].total_page;
                 this.listPost.map(e => {
                     e.created_date = this.convertArrayDate2Date(e.created_date)
                 })

@@ -211,108 +211,64 @@
                 <div class="w-full md:w-6/12 px-4 mr-auto ml-auto mt-32">
                     <div class="justify-center flex flex-wrap relative">
                         <div class="my-4 w-full lg:w-6/12 px-4">
-                            <a
-                                    href="https://www.creative-tim.com/learning-lab/tailwind/svelte/alerts/notus?ref=vn-index"
-                                    target="_blank"
-                            >
-                                <div class="bg-red-600 shadow-lg rounded-lg text-center p-8">
+
+                                <div class="bg-600  rounded-lg text-center   ">
                                     <img
                                             alt="..."
-                                            class="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                                            src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/svelte.jpg"
+                                            class="shadow-md rounded-full max-w-full  mx-auto p-2 bg-white"
+                                            src="@/assets/img/ill_header.png"
                                     />
-                                    <p class="text-lg text-white mt-4 font-semibold">
-                                        Svelte
-                                    </p>
                                 </div>
-                            </a>
-                            <a
-                                    href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=vn-index"
-                                    target="_blank"
-                            >
-                                <div
-                                        class="bg-lightBlue-500 shadow-lg rounded-lg text-center p-8 mt-8"
-                                >
+                                <div class="bg-600  rounded-lg text-center   ">
                                     <img
                                             alt="..."
-                                            class="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                                            src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/react.jpg"
+                                            class="shadow-md rounded-full max-w-full  mx-auto p-2 bg-white"
+                                            src="@/assets/img/ill_header.png"
                                     />
-                                    <p class="text-lg text-white mt-4 font-semibold">
-                                        ReactJS
-                                    </p>
                                 </div>
-                            </a>
-                            <a
-                                    href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/notus?ref=vn-index"
-                                    target="_blank"
+                            <div
+                                class="bg-yellow-500 shadow-lg rounded-lg text-center p-8"
                             >
-                                <div
-                                        class="bg-blueGray-700 shadow-lg rounded-lg text-center p-8 mt-8"
-                                >
-                                    <img
-                                            alt="..."
-                                            class="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                                            src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/nextjs.jpg"
-                                    />
-                                    <p class="text-lg text-white mt-4 font-semibold">
-                                        NextJS
-                                    </p>
-                                </div>
-                            </a>
+                                <img
+                                    alt="..."
+                                    class="shadow-md aspect-square max-w-full w-16 mx-auto p-2 bg-white"
+                                    src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png"
+                                />
+                                <p class="text-lg text-white mt-4 font-semibold">
+                                    JavaScript
+                                </p>
+                            </div>
                         </div>
                         <div class="my-4 w-full lg:w-6/12 px-4 lg:mt-16">
-                            <a
-                                    href="https://www.creative-tim.com/learning-lab/tailwind/js/alerts/notus?ref=vn-index"
-                                    target="_blank"
+                            <div class="bg-blue-600 rounded-full text-center overflow-hidden w-64 h-64 flex items-center justify-center">
+                                <img
+                                    alt="..."
+                                    class="w-full"
+                                    style="clip-path: polygon(50% 0%, 85% 18%, 100% 50%, 85% 82%, 50% 100%, 15% 82%, 0% 50%, 15% 18%);"
+                                    src="@/assets/img/ill_header.png"
+                                />
+                            </div>
+
+
+                            <div class="bg-600  rounded-lg text-center   ">
+                                <img
+                                    alt="..."
+                                    style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"
+                                    src="@/assets/img/ill_header.png"
+                                />
+                            </div>
+                            <div
+                                class="bg-yellow-500 shadow-lg rounded-lg text-center p-8"
                             >
-                                <div
-                                        class="bg-yellow-500 shadow-lg rounded-lg text-center p-8"
-                                >
-                                    <img
-                                            alt="..."
-                                            class="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                                            src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png"
-                                    />
-                                    <p class="text-lg text-white mt-4 font-semibold">
-                                        JavaScript
-                                    </p>
-                                </div>
-                            </a>
-                            <a
-                                    href="https://www.creative-tim.com/learning-lab/tailwind/angular/alerts/notus?ref=vn-index"
-                                    target="_blank"
-                            >
-                                <div
-                                        class="bg-red-700 shadow-lg rounded-lg text-center p-8 mt-8"
-                                >
-                                    <img
-                                            alt="..."
-                                            class="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                                            src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/angular.jpg"
-                                    />
-                                    <p class="text-lg text-white mt-4 font-semibold">
-                                        Angular
-                                    </p>
-                                </div>
-                            </a>
-                            <a
-                                    href="https://www.creative-tim.com/learning-lab/tailwind/vue/alerts/notus?ref=vn-index"
-                                    target="_blank"
-                            >
-                                <div
-                                        class="bg-emerald-500 shadow-lg rounded-lg text-center p-8 mt-8"
-                                >
-                                    <img
-                                            alt="..."
-                                            class="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
-                                            src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/vue.jpg"
-                                    />
-                                    <p class="text-lg text-white mt-4 font-semibold">
-                                        Vue.js
-                                    </p>
-                                </div>
-                            </a>
+                                <img
+                                    alt="..."
+                                    style="clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"
+                                    src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/js.png"
+                                />
+                                <p class="text-lg text-white mt-4 font-semibold">
+                                    JavaScript
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

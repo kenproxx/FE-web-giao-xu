@@ -125,7 +125,7 @@
                                 <v-btn
                                         color="primary"
                                 >
-                                    Reset
+                                    Làm mới
                                 </v-btn>
                             </template>
                         </v-data-table>

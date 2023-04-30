@@ -47,14 +47,15 @@
         </v-row>
 
         <v-snackbar
-            v-model="alert"
-            right
-            top
-            :color="colorAlert"
-            :timeout="timeout"
+                v-model="isAlert"
+                right
+                top
+                :color="colorAlert"
+                :timeout="timeout"
         >
-            {{messageAlert}}
-        </v-snackbar>    </div>
+            {{ messageAlert }}
+        </v-snackbar>
+    </div>
 
 </template>
 <script>
@@ -67,8 +68,8 @@ export default {
         return {
             loginForm: {},
             isFormValid: false,
-            alert: false,
             loading: false,
+            isAlert: false,
             timeout: 1000,
             messageAlert: '',
             colorAlert: '',
@@ -100,7 +101,7 @@ export default {
                 sessionStorage.setItem('access_token', token);
                 this.messageAlert = 'Đăng nhập thành công';
                 this.colorAlert = 'green';
-                this.alert = true;
+                this.isAlert = true;
                 setTimeout(() => {
                     this.$router.push('/manager');
                 }, 1000);
@@ -108,7 +109,7 @@ export default {
                 console.error(error);
                 this.messageAlert = 'Sai thông tin đăng nhập, kiểm tra lại!';
                 this.colorAlert = 'red';
-                this.alert = true;
+                this.isAlert = true;
             } finally {
                 this.loading = false;
             }

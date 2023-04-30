@@ -117,11 +117,6 @@ export default {
 
             },
             {
-                title: "Chi tiết",
-                to: "/detail",
-                disable: true
-            },
-            {
                 title: "Về Giáo xứ",
                 to: "/info",
                 disable: false

@@ -17,7 +17,7 @@
                             miếng cơm manh áo nhưng những người con xa xứ ấy vẫn luôn một
                             lòng hướng về Chúa, luôn sống đức tin mà mình đã lãnh nhận.
                             Và rồi dần không ai bảo ai họ vẫn họp nhau đọc kinh cầu nguyện
-                            giữa biết bao những đổi thay, thăng trầm của thời cuộc.
+                            giữa biết bao những đổi thay, thăng trầm của thời cuộc...
                         </p>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                             muốn lo cho họ có ruộng đất để làm việc, ngài đã mua hai
                             khu cánh đồng, một là khu cánh đồng Yên Thuận hai là khu
                             cánh đồng Huy Ngạc rồi lập nên một họ đạo mang tên Yên Huy.
-                            Lúc đó số giáo dân chỉ chừng 30 hộ với khoảng 120 nhân danh.
+                            Lúc đó số giáo dân chỉ chừng 30 hộ với khoảng 128 nhân danh.
                             Để những người giáo dân có nơi cầu nguyện ngài đã dành ra một
                             khu đất với diện tích chừng hơn 13.460 m2 để làm nơi thờ tự.
                             Sau đó, Đức cha Teodoro Gordaliza Phúc (1925-1931)
@@ -430,52 +430,56 @@
                 <div class="justify-center flex flex-wrap">
                     <div class="w-full lg:w-12/12 px-4 -mt-24">
                         <div class="flex flex-wrap">
-                            <v-lazy>
-                                <div class="w-full lg:w-4/12 px-4">
-                                    <h5 class="text-xl font-semibold pb-4 text-center">
-                                        Cha Phê-rô Mai Viết Thắng
-                                    </h5>
-                                    <div
-                                            class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
-                                    >
+                            <div class="w-full lg:w-4/12 px-4">
+                                <h5 class="text-xl font-semibold pb-4 text-center">
+                                    Cha Phê-rô Mai Viết Thắng
+                                </h5>
+                                <div
+                                        class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
+                                >
+                                    <v-lazy>
                                         <img
                                                 alt="..."
                                                 class="align-middle border-none max-w-full h-auto rounded-lg"
                                                 :src="cha_thang"
                                         />
-                                    </div>
+                                    </v-lazy>
                                 </div>
+                            </div>
 
-                                <div class="w-full lg:w-4/12 px-4">
-                                    <h5 class="text-xl font-semibold pb-4 text-center">
-                                        Cha Giuse Lê Thành Văn
-                                    </h5>
-                                    <div
-                                            class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
-                                    >
+                            <div class="w-full lg:w-4/12 px-4">
+                                <h5 class="text-xl font-semibold pb-4 text-center">
+                                    Cha Giuse Lê Thành Văn
+                                </h5>
+                                <div
+                                        class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
+                                >
+                                    <v-lazy>
                                         <img
                                                 alt="..."
                                                 class="align-middle border-none max-w-full h-auto rounded-lg"
-                                                :src="profile"
+                                                :src="anh_1"
                                         />
-                                    </div>
+                                    </v-lazy>
                                 </div>
+                            </div>
 
-                                <div class="w-full lg:w-4/12 px-4">
-                                    <h5 class="text-xl font-semibold pb-4 text-center">
-                                        Cha Giuse Đinh Văn Thành
-                                    </h5>
-                                    <div
-                                            class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
-                                    >
+                            <div class="w-full lg:w-4/12 px-4">
+                                <h5 class="text-xl font-semibold pb-4 text-center">
+                                    Cha Giuse Đinh Văn Thành
+                                </h5>
+                                <div
+                                        class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
+                                >
+                                    <v-lazy>
                                         <img
                                                 alt="..."
                                                 class="align-middle border-none max-w-full h-auto rounded-lg"
-                                                :src="landing"
+                                                :src="anh_1"
                                         />
-                                    </div>
+                                    </v-lazy>
                                 </div>
-                            </v-lazy>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -500,15 +504,15 @@
 
                     <div class="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-0">
                         <v-lazy>
-                        <img
-                                alt="..."
-                                class="max-w-full rounded-lg shadow-xl"
-                                style="
+                            <img
+                                    alt="..."
+                                    class="max-w-full rounded-lg shadow-xl"
+                                    style="
                 transform: scale(1) perspective(1040px) rotateY(-11deg)
                   rotateX(2deg) rotate(2deg);
               "
-                                :src="anh_21"
-                        />
+                                    :src="anh_21"
+                            />
                         </v-lazy>
                     </div>
                 </div>
@@ -521,8 +525,6 @@
 import componentProfileCard from "@/assets/img/component-profile-card.png";
 import componentInfoCard from "@/assets/img/component-info-card.png";
 import componentInfo2 from "@/assets/img/component-info-2.png";
-import profile from "@/assets/img/profile.jpg";
-import landing from "@/assets/img/landing.jpg";
 
 import anh_1 from "@/assets/img-info/anh_1.jpg";
 import anh_2 from "@/assets/img-info/anh_2.jpg";
@@ -553,8 +555,6 @@ export default {
             componentProfileCard,
             componentInfoCard,
             componentInfo2,
-            profile,
-            landing,
             slides: [
                 {
                     src: anh_1,

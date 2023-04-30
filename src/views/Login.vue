@@ -6,46 +6,56 @@
             </v-overlay>
         </div>
 
-    <v-row class="d-flex justify-center align-center fill-height" style="min-height: 100vh">
-        <v-col cols="12" md="6">
-            <v-card class="py-6">
-                <v-card-title class="d-flex justify-center">
-                    <div class="text-h4">
-                        Login
-                    </div>
-                </v-card-title>
-                <v-card-text>
-                    <v-form @input="validateForm" ref="form">
-                        <v-text-field
-                                label="Tên đăng nhập"
-                                v-model="loginForm.username"
-                                name="input-username"
-                                class="input-group--focused"
-                                :rules="rules.usernameRules"
-                                outlined
-                        ></v-text-field>
-                        <v-text-field
-                                label="Mật khẩu"
-                                v-model="loginForm.password"
-                                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                                :rules="rules.passwordRules"
-                                :type="showPassword ? 'text' : 'password'"
-                                name="input-10-2"
-                                class="input-group--focused"
-                                @click:append="showPassword = !showPassword"
-                                outlined
-                        ></v-text-field>
-                    </v-form>
-                    <div class="text-right">
-                        <v-btn color="primary" :disabled="!isFormValid" @click="login">
+        <v-row class="d-flex justify-center align-center fill-height" style="min-height: 100vh">
+            <v-col cols="12" md="6">
+                <v-card class="py-6">
+                    <v-card-title class="d-flex justify-center">
+                        <div class="text-h4">
                             Login
-                        </v-btn>
-                    </div>
-                </v-card-text>
-            </v-card>
-        </v-col>
-    </v-row>
-    </div>
+                        </div>
+                    </v-card-title>
+                    <v-card-text>
+                        <v-form @input="validateForm" ref="form">
+                            <v-text-field
+                                    label="Tên đăng nhập"
+                                    v-model="loginForm.username"
+                                    name="input-username"
+                                    class="input-group--focused"
+                                    :rules="rules.usernameRules"
+                                    outlined
+                            ></v-text-field>
+                            <v-text-field
+                                    label="Mật khẩu"
+                                    v-model="loginForm.password"
+                                    :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                                    :rules="rules.passwordRules"
+                                    :type="showPassword ? 'text' : 'password'"
+                                    name="input-10-2"
+                                    class="input-group--focused"
+                                    @click:append="showPassword = !showPassword"
+                                    outlined
+                            ></v-text-field>
+                        </v-form>
+                        <div class="text-right">
+                            <v-btn color="primary" :disabled="!isFormValid" @click="login">
+                                Login
+                            </v-btn>
+                        </div>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+
+        <v-snackbar
+            v-model="alert"
+            right
+            top
+            :color="colorAlert"
+            :timeout="timeout"
+        >
+            {{messageAlert}}
+        </v-snackbar>    </div>
+
 </template>
 <script>
 import axios from "axios";
@@ -57,7 +67,11 @@ export default {
         return {
             loginForm: {},
             isFormValid: false,
+            alert: false,
             loading: false,
+            timeout: 1000,
+            messageAlert: '',
+            colorAlert: '',
             rules: {
                 passwordRules: [
                     v => !!v || 'Vui lòng nhập mật khẩu',
@@ -84,9 +98,18 @@ export default {
                 const data = response.data;
                 const token = data.accessToken;
                 sessionStorage.setItem('access_token', token);
-                this.$router.push('/manager');
+                this.messageAlert = 'Đăng nhập thành công';
+                this.colorAlert = 'green';
+                this.alert = true;
+                setTimeout(() => {
+                    this.$router.push('/manager');
+                }, 1000);
             } catch (error) {
                 console.error(error);
+                this.messageAlert = 'Sai thông tin đăng nhập, kiểm tra lại!';
+                this.colorAlert = 'red';
+                this.alert = true;
+            } finally {
                 this.loading = false;
             }
         },

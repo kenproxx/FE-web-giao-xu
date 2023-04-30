@@ -301,7 +301,7 @@
 
 <script>
 export default {
-    name: "Category",
+    name: "Info",
     components: {
         siderbar: () => import("@/components/details/sidebar.vue"),
     },

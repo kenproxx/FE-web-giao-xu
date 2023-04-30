@@ -124,6 +124,7 @@
                             <template v-slot:no-data>
                                 <v-btn
                                         color="primary"
+                                        @click="getAllPost"
                                 >
                                     Làm mới
                                 </v-btn>

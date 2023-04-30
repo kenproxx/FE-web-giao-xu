@@ -84,7 +84,7 @@ import axios from "axios";
 import {FIND_BY_ID} from "@/utils";
 
 export default {
-    name: "Category",
+    name: "Detail",
     components: {
         siderbar: () => import("@/components/details/sidebar")
     },

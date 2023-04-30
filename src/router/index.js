@@ -11,24 +11,34 @@ const routes = [
         component: Home
     },
     {
-        path: '/category',
-        name: 'Category',
-        component: () => import("@/views/Category.vue"),
-    },
-    {
-        path: '/detail/:id',
+        path: '/chi-tiet/:id',
         name: 'Detail',
         component: () => import("@/views/Detail.vue"),
     },
     {
-        path: '/authors',
-        name: 'Authors',
-        component: () => import("@/views/Authors.vue"),
+        path: '/info',
+        name: 'Info',
+        component: () => import("@/views/InfoPage.vue"),
     },
     {
         path: '/login',
         name: 'Login',
         component: () => import("@/views/Login.vue"),
+    },
+    {
+        path: '/manager',
+        name: 'Mangager',
+        component: () => import("@/views/Manager.vue"),
+    },
+    {
+        path: '/create-post',
+        name: 'CreatePost',
+        component: () => import("@/views/post-manager/CreatePost.vue"),
+    },
+    {
+        path: '/edit-post/:id',
+        name: 'EditPost',
+        component: () => import("@/views/post-manager/EditPost.vue"),
     }
 ]
 

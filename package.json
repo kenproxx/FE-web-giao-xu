@@ -12,7 +12,17 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.14",
     "vue-router": "^3.2.0",
-    "vuetify": "^2.6.0"
+    "vue2-editor": "^2.10.3",
+    "vuetify": "^2.6.0",
+
+    "@fortawesome/fontawesome-free": "5.15.3",
+    "@popperjs/core": "2.9.1",
+    "@tailwindcss/forms": "0.2.1",
+    "@vue/compiler-sfc": "3.0.7",
+    "chart.js": "2.9.4",
+    "gulp": "4.0.2",
+    "gulp-append-prepend": "1.0.8",
+    "tailwindcss": "2.0.4"
   },
   "devDependencies": {
     "sass": "~1.32.12",
@@ -20,7 +30,14 @@
     "unplugin-vue-components": "^0.17.15",
     "vite": "^2.7.13",
     "vite-plugin-vue2": "^1.9.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+
+    "@babel/core": "7.13.10",
+    "@babel/eslint-parser": "7.13.10",
+    "@vue/cli-plugin-babel": "5.0.0-alpha.7",
+    "@vue/cli-service": "5.0.0-alpha.7",
+    "autoprefixer": "10.2.5",
+    "postcss": "8.2.8"
   },
   "browserslist": [
     "> 1%",

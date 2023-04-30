@@ -536,9 +536,6 @@ import anh_9 from "@/assets/img-info/anh_9.jpg";
 import anh_10 from "@/assets/img-info/anh_10.jpg";
 import anh_11 from "@/assets/img-info/anh_11.jpg";
 import anh_12 from "@/assets/img-info/anh_12.jpg";
-import anh_13 from "@/assets/img-info/anh_13.jpg";
-import anh_14 from "@/assets/img-info/anh_14.jpg";
-import anh_15 from "@/assets/img-info/anh_15.jpg";
 import anh_16 from "@/assets/img-info/anh_16.jpg";
 import anh_17 from "@/assets/img-info/anh_17.jpg";
 import anh_18 from "@/assets/img-info/anh_18.jpg";
@@ -590,9 +587,6 @@ export default {
             anh_10,
             anh_11,
             anh_12,
-            anh_13,
-            anh_14,
-            anh_15,
             anh_16,
             anh_17,
             anh_18,

@@ -82,7 +82,7 @@ export default {
                 usernameRules: [
                     v => !!v || 'Vui lòng nhập tên đăng nhập',
                     v => (v && v.length >= 4) || 'Tên đăng nhập phải có ít nhất 4 ký tự',
-                    v => /^[a-zA-Z0-9._]+$/.test(v) || 'Tên đăng nhập chỉ chấp nhận các ký tự chữ, số, dấu chấm và gạch dưới',
+                    v => /^[a-zA-Z0-9._\s]+$/.test(v) || 'Tên đăng nhập chỉ chấp nhận các ký tự chữ, số, dấu chấm và gạch dưới',
                 ],
             },
             showPassword: false,

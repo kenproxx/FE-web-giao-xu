@@ -1,4 +1,4 @@
-const BASEURL = "http://localhost:8000"
+const BASEURL = "https://daituchurch.herokuapp.com"
 
  const POST = "/posts";
  const TAG = "/tags";

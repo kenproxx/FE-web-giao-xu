@@ -1,4 +1,4 @@
-const BASEURL = "https://daituchurch.herokuapp.com"
+const BASEURL = process.env.VUE_APP_BASE_URL;
 
  const POST = "/posts";
  const TAG = "/tags";
